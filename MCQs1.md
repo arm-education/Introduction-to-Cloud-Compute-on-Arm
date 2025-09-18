@@ -6,13 +6,13 @@
 
 ### 1. Which of the following scenarios most accurately illustrates how architectural “optional features” in Armv9–A impact cross-platform software development on Neoverse?
 
-1)  Code that depends on a mandatory instruction set always works across
+- A. Code that depends on a mandatory instruction set always works across
     all Armv9–A implementations
-2)  Software must dynamically query for the presence of optional
+- B. Software must dynamically query for the presence of optional
     features and adapt, as their implementation is not guaranteed
-3)  The absence of optional features triggers a hardware fault, stopping
+- C. The absence of optional features triggers a hardware fault, stopping
     execution
-4)  Optional features are always implemented for compatibility
+- D. Optional features are always implemented for compatibility
 
 **Answer:** B
 
@@ -259,6 +259,7 @@ and I/O bandwidth for scaling out.
 - *Incorrect (D):* CSS N3 supports up to 32 cores and includes
 die-to-die links.  
 - *Section:* 5.6 Neoverse Compute Subsystems
+
 
 
 
