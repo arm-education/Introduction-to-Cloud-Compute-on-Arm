@@ -161,7 +161,7 @@ throughput, and other factors. These are some of the considerations
 which drive the choice of an appropriate platform for any new product.
 
 For further information about Arm, please check the [Arm
-website](https://www.arm.com/resources/education).
+website](https://www.arm.com).
 
 # 3. Development of the Arm Architecture
 
@@ -2183,6 +2183,7 @@ and cheaper support in the future.
 [^10]: <sup>For further information on Arm’s corporate approach to
     sustainability, refer to the 2024 Sustainable Business Report,
     (https://www.arm.com/company/sustainability/read-our-reports)</sup>
+
 
 
 
