@@ -32,7 +32,7 @@ Start with placement and isolation, then the trust boundary:
 - Why it matters (“control without access”): **Part 2 Section 2 - Security Considerations**
 - System view of Root/Secure/Realm: **Part 2 Section 3 - A Typical Software Stack**
 
-**Inclusive Language Commitment**
+## Inclusive Language Commitment
 Arm is committed to making the language we use inclusive, meaningful, and respectful. Our goal is to remove and replace non-inclusive language from our vocabulary to reflect our values and represent our global ecosystem.
 
 Arm is working actively with our partners, standards bodies, and the wider ecosystem to adopt a consistent approach to the use of inclusive language and to eradicate and replace offensive terms. We recognise that this will take time. This course has been updated to replace references to non-inclusive language. We recognise that some of you will be accustomed to using the previous terms and may not immediately recognise their replacements. Please refer to the following example:
