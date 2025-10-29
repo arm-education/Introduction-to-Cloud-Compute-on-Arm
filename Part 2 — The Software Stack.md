@@ -383,7 +383,7 @@ users. It is typically based on reference software provided by
 Arm<sup>®</sup>.[^13]
 
 We now look at the boot sequence—beginning from reset and typically
-ending with the launch of the operating system.6
+ending with the launch of the operating system.
 
 # 4. The Boot Sequence: Hardware to Operating System
 
@@ -1125,5 +1125,6 @@ architecture.
     associated properties, see Chapter B2 in the Arm Architecture
     Reference Manual for A–profile architecture (ARM DDI 0487K). The
     discussion there is highly technical!</sup>
+
 
 
