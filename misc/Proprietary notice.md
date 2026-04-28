@@ -1,4 +1,5 @@
-Proprietary notice
+# Proprietary notice
+
 This document is protected by copyright and other related rights and the practice or implementation of the information contained in this document may be protected by one or more patents or pending patent applications. No part of this document may be reproduced in any form by any means without the express prior written permission of Arm Limited (“Arm”). No license, express or implied, by estoppel or otherwise to any intellectual property rights is granted by this document unless specifically stated.
 
 Your access to the information in this document is conditional upon your acceptance that you will not use or permit others to use the information for the purposes of determining whether the subject matter of the document infringes any third party patents.
