@@ -1,7 +1,9 @@
 # Introduction-to-Cloud-Compute-on-Arm
 Introduction to Cloud Compute on Arm introduces the Arm Neoverse range of processors for developers.
 
-The purpose of this educational guide is to introduce the Arm® Neoverse™ range of processors for developers who wish to write software for devices powered by Neoverse cores. Readers should gain an appreciation of the purpose and reasoning behind major features of the Armv9 architecture and of the range of Neoverse processors. This is intended to enable readers to make informed choices when selecting a target platform for a particular use case, including tool selection and software development methodology. This material can also serve as a resource for those looking to learn or teach about server computing.
+The purpose of this resource is to introduce the Arm® Neoverse™ range of processors for developers who wish to write software for devices powered by Neoverse cores. Readers should gain an appreciation of the purpose and reasoning behind major features of the Armv9 architecture and of the range of Neoverse processors. This is intended to enable readers to make informed choices when selecting a target platform for a particular use case, including tool selection and software development methodology. This material can also serve as a resource for those looking to learn or teach about server computing. 
+
+The full PDF can be downloaded from this repo, and the individual parts are available to read here in markdown files, if preferred. 
 
 # Navigate This Document by Use Case 
 
