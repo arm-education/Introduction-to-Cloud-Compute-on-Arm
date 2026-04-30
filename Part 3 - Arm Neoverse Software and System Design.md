@@ -1109,48 +1109,50 @@ Install pre-requisites:
 
 Import an official nginx signing key so apt can verify the packages
 authenticity. Fetch the key:
-
-`curl https://nginx.org/keys/nginx_signing.key \| gpg --dearmor \\`  
-`\| sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg \>/dev/null`
-
+```
+curl https://nginx.org/keys/nginx_signing.key \| gpg --dearmor \\
+\| sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg \>/dev/null
+```
 Verify that the downloaded file contains the proper key:
-
-`gpg --dry-run --quiet --no-keyring --import --import-options import-show`
-`/usr/share/keyrings/nginx-archive-keyring.gpg`
-
+```
+gpg --dry-run --quiet --no-keyring --import --import-options import-show
+/usr/share/keyrings/nginx-archive-keyring.gpg
+```
 The output should contain the full
 fingerprint `573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62` as follows:[^22]
 
-`pub rsa2048 2011-08-19 \[SC\] \[expires: 2027-05-24\]`  
-`573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62`
+```
+pub rsa2048 2011-08-19 \[SC\] \[expires: 2027-05-24\]  
+573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
 
-`uid nginx signing key \<signing-key@nginx.com\>`
-
+uid nginx signing key \<signing-key@nginx.com\>
+```
 Note that the output can contain other keys used to sign the packages.
 
 To set up the apt repository for stable nginx packages, run the
 following command:
 
-`echo "deb \[signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg\]`
-`\\`  
-`http://nginx.org/packages/ubuntu \lsb_release -cs\ nginx" \\  `
-`\| sudo tee /etc/apt/sources.list.d/nginx.list`
-
+```
+echo "deb \[signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg\]
+\\  
+http://nginx.org/packages/ubuntu \lsb_release -cs\ nginx" \\  
+\| sudo tee /etc/apt/sources.list.d/nginx.list
+```
 If you would like to use mainline nginx packages, run the following
 command instead:
-
-`echo "deb \[signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg\]`  
-`http://nginx.org/packages/mainline/ubuntu \lsb_release -cs\ nginx"`
-`\\`  
-`\| sudo tee /etc/apt/sources.list.d/nginx.list`
-
+```
+echo "deb \[signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg\]
+http://nginx.org/packages/mainline/ubuntu \lsb_release -cs\ nginx"
+\\  
+\| sudo tee /etc/apt/sources.list.d/nginx.list
+```
 Set up repository pinning to prefer the chosen packages over
 distribution-provided ones:
-
-`echo -e "Package: \*\nPin: origin nginx.org\nPin: release`
-`o=nginx\nPin-Priority: 900\n" \\  `
-`\| sudo tee /etc/apt/preferences.d/99nginx`
-
+```
+echo -e "Package: \*\nPin: origin nginx.org\nPin: release
+o=nginx\nPin-Priority: 900\n" \\  
+\| sudo tee /etc/apt/preferences.d/99nginx
+```
 To install nginx, run the following commands:
 
 `sudo apt update`
@@ -1172,16 +1174,16 @@ This command will produce output similar to the following.[^23] The
 “`--with-cc-opt`” output shows the compiler flags which can be used to
 rebuild from source. The output also shows which version of OpenSSL has
 been incorporated into the build.
+```
+Nginx version: nginx/1.18.0
 
-`Nginx version: nginx/1.18.0`
+built with OpeSSL 3.0.2 15 March 202
 
-`built with OpeSSL 3.0.2 15 March 202`
+TLS SNI support enabled
 
-`TLS SNI support enabled`
-
-`configure arguments: - - with-cc-opt=’-g -O2`
-`–ffile-prefix-map=/build/nginx-glNPk0/nginx-1.18.0=. -flto=auto`
-
+configure arguments: - - with-cc-opt=’-g -O2
+–ffile-prefix-map=/build/nginx-glNPk0/nginx-1.18.0=. -flto=auto
+```
 Enable and start nginx:
 
 `sudo systemctl enable nginx`
@@ -1244,41 +1246,41 @@ The module for connecting PHP and MySQL is installed.
 Using your favorite text editor, edit the default configuration file
 at  
 /etc/nginx/sites-available/default to add the following:
+```
+server {
 
-`server {`
+listen 80 default server;
 
-`listen 80 default server;`
+listen \[::\]:80 default_server;
 
-`listen \[::\]:80 default_server;`
+server_name \_;
 
-`server_name \_;`
+index index.php index.html index.htm index.nginx.htm;
 
-`index index.php index.html index.htm index.nginx.htm;`
+location / {
 
-`location / {`
+try_files \$uri \$uri/ =404;
 
-`try_files \$uri \$uri/ =404;`
+}
 
-`}`
+\#pass PHP scripts to FastCGI server
 
-`\#pass PHP scripts to FastCGI server`
+location ~ \\php\$ {
 
-`location ~ \\php\$ {`
+include snippets/fastcgi-php.conf;
 
-`include snippets/fastcgi-php.conf;`
+fastcgi_pass unix:/run/php/php8.1-fpm.sock;
 
-`fastcgi_pass unix:/run/php/php8.1-fpm.sock;`
+}
 
-`}`
+location ~ /\\ht {
 
-`location ~ /\\ht {`
+deny all;
 
-`deny all;`
+}
 
-`}`
-
-`}`
-
+}
+```
 Restart Nginx:
 
 `sudo systemctl restart nginx`
@@ -1290,10 +1292,11 @@ renders properly.
 
 Create a file named info.php in the /var/www/html containing a simple
 phpinfo call.
+```
+sudo chmod -R 777 /var/www/html
 
-`sudo chmod -R 777 /var/www/html`
-
-`echo "\<?php phpinfo(); ?\>" \>\> /var/www/html/info.php`
+echo "\<?php phpinfo(); ?\>" \>\> /var/www/html/info.php
+```
 
 Visit: [<u>http://localhost/info.php</u>](http://localhost/info.php) and
 the PHP info page should appear confirming the details of the
@@ -1458,31 +1461,34 @@ publicly available Google User Generated Content (UGC) dataset. This
 dataset comprises some 1500 video clips, totaling 500 minutes of content
 of varying quality, bitrate, resolution, and content. We will use the
 360P and 1080P files.
+```
+wget
+[<u>https://storage.googleapis.com/ugc</u>](https://storage.googleapis.com/ugc)
+\\  
+dataset/original_videos/Sports/360P/Sports_360P-02c3.mkv
+```
 
-`wget`
-`[<u>https://storage.googleapis.com/ugc</u>](https://storage.googleapis.com/ugc)`
-`\\  `
-`dataset/original_videos/Sports/360P/Sports_360P-02c3.mkv`
-
-`wget`
-`[<u>https://storage.googleapis.com/ugc</u>](https://storage.googleapis.com/ugc)`
-`\\  `
-`dataset/original_videos/Sports/1080P/Sports_1080P-0640.mkv`
+```
+wget
+[<u>https://storage.googleapis.com/ugc</u>](https://storage.googleapis.com/ugc)
+\\  
+dataset/original_videos/Sports/1080P/Sports_1080P-0640.mkv
+```
 
 ### 23.5.5  Run the Codec and Measure the Performance
 
 The following command runs the codec on 50 frames of 360P video:
-
-`./x265 --preset ultrafast --frames 50 Sports_360P-02c3.mkv \\`  
-`--input-res 640x360 --fps 24 --output outfile.265  `
-`--frame-threads 1 --no-wpp --pools ','`
-
+```
+./x265 --preset ultrafast --frames 50 Sports_360P-02c3.mkv \\  
+--input-res 640x360 --fps 24 --output outfile.265  
+--frame-threads 1 --no-wpp --pools ','
+```
 The following command runs the codec on 50 frames of 1080P video:
-
-`./x265 --preset ultrafast --frames 50 Sports_1080P-0640.mkv \\  `
-`--input-res 1920x1080 --fps 24 --output outfile.265 \\  `
-`--frame-threads 1 --no-wpp --pools ','`
-
+```
+./x265 --preset ultrafast --frames 50 Sports_1080P-0640.mkv \\  
+--input-res 1920x1080 --fps 24 --output outfile.265 \\  
+--frame-threads 1 --no-wpp --pools ','
+```
 Note the following options which are used to control the level of
 concurrency employed by the codec:
 
@@ -1619,90 +1625,97 @@ Run the following commands to install Python and relevant dependencies.
 
 Using a text editor, add the following to requirements.txt.
 
-`\# Core LLM & RAG Components`
+```
+\# Core LLM & RAG Components
 
-`langchain==0.1.16`
+langchain==0.1.16
 
-`langchain_community==0.0.38`
+langchain_community==0.0.38
 
-`langchainhub==0.1.20`
+langchainhub==0.1.20
 
-`\# Vector Database & Embeddings`
+\# Vector Database & Embeddings
 
-`faiss-cpu`
+faiss-cpu
 
-`sentence-transformers`
+sentence-transformers
 
-`\# Document Processing`
+\# Document Processing
 
-`pypdf`
+pypdf
 
-`PyPDF2`
+PyPDF2
 
-`lxml`
+lxml
 
-`\# API and Web Interface`
+\# API and Web Interface
 
-`flask`
+flask
 
-`requests`
+requests
 
-`flask_cors`
+flask_cors
 
-`streamlit`
+streamlit
 
-`\# Environment and Utils`
+\# Environment and Utils
 
-`argparse`
+argparse
 
-`python-dotenv==1.0.1`
+python-dotenv==1.0.1
+```
 
 ### 24.5.4  Create, Activate and Install the Python Environment
 
 Run the following commands:
+```
+python3 -m venv rag-env
 
-`python3 -m venv rag-env`
+source rag-env/bin/activate
 
-`source rag-env/bin/activate`
-
-`pip install -r requirements.txt`
+pip install -r requirements.txt
+```
 
 ### 24.5.5  Install llama.cpp
 
 The following command installs the llama.cpp backend, included in the
 Python binding.
 
-`pip install llama-cpp-python --extra-index-url \\  `
-`https://abetlen.github.io/llama-cpp-python/whl/cpu`
+```
+pip install llama-cpp-python --extra-index-url \\  
+https://abetlen.github.io/llama-cpp-python/whl/cpu
+```
 
 ### 24.5.6  Download and Build the Model
 
-`mkdir models`
+```
+mkdir models
 
-`cd models`
+cd models
 
-`wget https://huggingface.co/chatpdflocal/\\  `
-`llama3.1-8b-gguf/resolve/main/ggml-model-Q4_K_M.gguf`
+wget https://huggingface.co/chatpdflocal/\\  
+llama3.1-8b-gguf/resolve/main/ggml-model-Q4_K_M.gguf
 
-`cd ~`
+cd ~
 
-`git clone https://github.com/ggerganov/llama.cp`
+git clone https://github.com/ggerganov/llama.cp
 
-`cd llama.cpp`
+cd llama.cpp
 
-`mkdir build`
+mkdir build
 
-`cd build`
+cd build
 
-`cmake .. -DCMAKE_CXX_FLAGS="-mcpu=native" -DCMAKE_C_FLAGS="-mcpu=native"`
+cmake .. -DCMAKE_CXX_FLAGS="-mcpu=native" -DCMAKE_C_FLAGS="-mcpu=native"
 
-`cmake --build . -v --config Release -j \nproc\`
+cmake --build . -v --config Release -j \nproc\
 
-`cd bin`
+cd bin
 
-`./llama-quantize --allow-requantize ../../../models/\\  `
-`ggml-model-Q4_K_M.gguf ../../../models/\\  `
-`llama3.1-8b-instruct.Q4_0_arm.gguf Q4_0`
+./llama-quantize --allow-requantize ../../../models/\\  
+ggml-model-Q4_K_M.gguf ../../../models/\\  
+llama3.1-8b-instruct.Q4_0_arm.gguf Q4_0
+```
 
 The first set of commands downloads the model source, the second set of
 commands builds the library (to run on CPU only, with no GPU
@@ -1723,321 +1736,323 @@ each weight.
 Using a text editor, create a file backend.py with the following
 content.[^26]
 
-`import os`
+```
+import os
 
-`import time`
+import time
 
-`import logging`
+import logging
 
-`from flask import Flask, request, jsonify`
+from flask import Flask, request, jsonify
 
-`from flask_cors import CORS`
+from flask_cors import CORS
 
-`from langchain_community.vectorstores import FAISS`
+from langchain_community.vectorstores import FAISS
 
-`from langchain_community.embeddings import HuggingFaceEmbeddings`
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
-`from langchain_community.llms import LlamaCpp`
+from langchain_community.llms import LlamaCpp
 
-`from langchain_core.callbacks import StreamingStdOutCallbackHandler`
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
 
-`from langchain_core.prompts import PromptTemplate`
+from langchain_core.prompts import PromptTemplate
 
-`from langchain_community.document_loaders import PyPDFLoader,\\  `
-`DirectoryLoader`
+from langchain_community.document_loaders import PyPDFLoader,\\  
+DirectoryLoader
 
-`from langchain_text_splitters import HTMLHeaderTextSplitter,\\  `
-`CharacterTextSplitter`
+from langchain_text_splitters import HTMLHeaderTextSplitter,\\  
+CharacterTextSplitter
 
-`from langchain.schema.runnable import RunnablePassthrough`
+from langchain.schema.runnable import RunnablePassthrough
 
-`from langchain_core.output_parsers import StrOutputParser`
+from langchain_core.output_parsers import StrOutputParser
 
-`from langchain_core.runnables import ConfigurableField`
+from langchain_core.runnables import ConfigurableField
 
-`\# Configure logging`
+\# Configure logging
 
-`logging.getLogger('watchdog').setLevel(logging.ERROR)`
+logging.getLogger('watchdog').setLevel(logging.ERROR)
 
-`logger = logging.getLogger(\_\_name\_\_)`
+logger = logging.getLogger(\_\_name\_\_)
 
-`\# Initialize Flask app`
+\# Initialize Flask app
 
-`app = Flask(\_\_name\_\_)`
+app = Flask(\_\_name\_\_)
 
-`CORS(app)`
+CORS(app)
 
-`\# Configure paths`
+\# Configure paths
 
-`BASE_PATH = "\$HOME"`
+BASE_PATH = "\$HOME"
 
-`TEMP_DIR = os.path.join(BASE_PATH, "temp")`
+TEMP_DIR = os.path.join(BASE_PATH, "temp")
 
-`VECTOR_DIR = os.path.join(BASE_PATH, "vector")`
+VECTOR_DIR = os.path.join(BASE_PATH, "vector")
 
-`MODEL_PATH = os.path.join(BASE_PATH,`
-`"models/llama3.1-8b-instruct.Q4_0_arm.gguf")`
+MODEL_PATH = os.path.join(BASE_PATH,
+"models/llama3.1-8b-instruct.Q4_0_arm.gguf")
 
-`\# Ensure directories exist`
+\# Ensure directories exist
 
-`os.makedirs(TEMP_DIR, exist_ok=True)`
+os.makedirs(TEMP_DIR, exist_ok=True)
 
-`os.makedirs(VECTOR_DIR, exist_ok=True)`
+os.makedirs(VECTOR_DIR, exist_ok=True)
 
-`\# Token Streaming`
+\# Token Streaming
 
-`class StreamingCallback(StreamingStdOutCallbackHandler):`
+class StreamingCallback(StreamingStdOutCallbackHandler):
 
-`def \_\_init\_\_(self):`
+def \_\_init\_\_(self):
 
-`super().\_\_init\_\_()`
+super().\_\_init\_\_()
 
-`self.tokens = \[\]`
+self.tokens = \[\]
 
-`self.start_time = None`
+self.start_time = None
 
-`def on_llm_start(self, \*args, \*\*kwargs):`
+def on_llm_start(self, \*args, \*\*kwargs):
 
-`self.start_time = time.time()`
+self.start_time = time.time()
 
-`self.tokens = \[\]`
+self.tokens = \[\]
 
-`print("\nLLM Started generating response...", flush=True)`
+print("\nLLM Started generating response...", flush=True)
 
-`def on_llm_new_token(self, token: str, \*\*kwargs):`
+def on_llm_new_token(self, token: str, \*\*kwargs):
 
-`self.tokens.append(token)`
+self.tokens.append(token)
 
-`print(token, end="", flush=True)`
+print(token, end="", flush=True)
 
-`def on_llm_end(self, \*args, \*\*kwargs):`
+def on_llm_end(self, \*args, \*\*kwargs):
 
-`end_time = time.time()`
+end_time = time.time()
 
-`duration = end_time - self.start_time`
+duration = end_time - self.start_time
 
-`print(f"\nLLM finished generating response in {duration:.2f}\\  `
-`seconds", flush=True)`
+print(f"\nLLM finished generating response in {duration:.2f}\\  
+seconds", flush=True)
 
-`def format_docs(docs):`
+def format_docs(docs):
 
-`return "\n\n".join(doc.page_content for doc in docs).replace("Context:",`
-`"").strip()`
+return "\n\n".join(doc.page_content for doc in docs).replace("Context:",
+"").strip()
 
-`\# Vectordb creating API`
+\# Vectordb creating API
 
-`@app.route('/create_vectordb', methods=\['POST'\])`
+@app.route('/create_vectordb', methods=\['POST'\])
 
-`def create_vectordb():`
+def create_vectordb():
 
-`try:`
+try:
 
-`data = request.json`
+data = request.json
 
-`vector_name = data\['vector_name'\]`
+vector_name = data\['vector_name'\]
 
-`chunk_size = int(data\['chunk_size'\])`
+chunk_size = int(data\['chunk_size'\])
 
-`doc_type = data\['doc_type'\]`
+doc_type = data\['doc_type'\]
 
-`vector_path = os.path.join(VECTOR_DIR, vector_name)`
+vector_path = os.path.join(VECTOR_DIR, vector_name)
 
-`\# Process document`
+\# Process document
 
-`chunk_overlap = 30`
+chunk_overlap = 30
 
-`if doc_type == "PDF":`
+if doc_type == "PDF":
 
-`loader = DirectoryLoader(TEMP_DIR, glob='\*.pdf',\\  `
-`loader_cls=PyPDFLoader)`
+loader = DirectoryLoader(TEMP_DIR, glob='\*.pdf',\\  
+loader_cls=PyPDFLoader)
 
-`docs = loader.load()`
+docs = loader.load()
 
-`elif doc_type == "HTML":`
+elif doc_type == "HTML":
 
-`url = data\['url'\]`
+url = data\['url'\]
 
-`splitter = HTMLHeaderTextSplitter(\[`
+splitter = HTMLHeaderTextSplitter(\[
 
-`("h1", "Header 1"), ("h2", "Header 2"),`
+("h1", "Header 1"), ("h2", "Header 2"),
 
-`("h3", "Header 3"), ("h4", "Header 4")`
+("h3", "Header 3"), ("h4", "Header 4")
 
-`\])`
+\])
 
-`docs = splitter.split_text_from_url(url)`
+docs = splitter.split_text_from_url(url)
 
-`else:`
+else:
 
-`return jsonify({"error": "Unsupported document type"}), 400`
+return jsonify({"error": "Unsupported document type"}), 400
 
-`\# Create vectorstore`
+\# Create vectorstore
 
-`text_splitter = CharacterTextSplitter(`
+text_splitter = CharacterTextSplitter(
 
-`chunk_size=chunk_size,`
+chunk_size=chunk_size,
 
-`chunk_overlap=chunk_overlap`
+chunk_overlap=chunk_overlap
 
-`)`
+)
 
-`split_docs = text_splitter.split_documents(docs)`
+split_docs = text_splitter.split_documents(docs)
 
-`embedding = HuggingFaceEmbeddings(model_name="thenlper/gte-base")`
+embedding = HuggingFaceEmbeddings(model_name="thenlper/gte-base")
 
-`vectorstore = FAISS.from_documents(documents=split_docs,\\  `
-`embedding=embedding)`
+vectorstore = FAISS.from_documents(documents=split_docs,\\  
+embedding=embedding)
 
-`vectorstore.save_local(vector_path)`
+vectorstore.save_local(vector_path)
 
-`return jsonify({"status": "success", "path": vector_path})`
+return jsonify({"status": "success", "path": vector_path})
 
-`except Exception as e:`
+except Exception as e:
 
-`logger.exception("Error creating vector database")`
+logger.exception("Error creating vector database")
 
-`return jsonify({"error": str(e)}), 500`
+return jsonify({"error": str(e)}), 500
 
-`\# Query API`
+\# Query API
 
-`@app.route('/query', methods=\['POST'\])`
+@app.route('/query', methods=\['POST'\])
 
-`def query():`
+def query():
 
-`try:`
+try:
 
-`data = request.json`
+data = request.json
 
-`question = data\['question'\]`
+question = data\['question'\]
 
-`vector_path = data.get('vector_path')`
+vector_path = data.get('vector_path')
 
-`use_vectordb = data.get('use_vectordb', False)`
+use_vectordb = data.get('use_vectordb', False)
 
-`\# Initialize LLM`
+\# Initialize LLM
 
-`callbacks = \[StreamingCallback()\]`
+callbacks = \[StreamingCallback()\]
 
-`model = LlamaCpp(`
+model = LlamaCpp(
 
-`model_path=MODEL_PATH,`
+model_path=MODEL_PATH,
 
-`temperature=0.1,`
+temperature=0.1,
 
-`max_tokens=1024,`
+max_tokens=1024,
 
-`n_batch=2048,`
+n_batch=2048,
 
-`callbacks=callbacks,`
+callbacks=callbacks,
 
-`n_ctx=10000,`
+n_ctx=10000,
 
-`n_threads=64,`
+n_threads=64,
 
-`n_threads_batch=64`
+n_threads_batch=64
 
-`)`
+)
 
-`\# Create chain`
+\# Create chain
 
-`if use_vectordb and vector_path:`
+if use_vectordb and vector_path:
 
-`embedding = HuggingFaceEmbeddings(model_name=\\  `
-`"thenlper/gte-base")`
+embedding = HuggingFaceEmbeddings(model_name=\\  
+"thenlper/gte-base")
 
-`vectorstore = FAISS.load_local(vector_path, embedding,\\  `
-`allow_dangerous_deserialization=True)`
+vectorstore = FAISS.load_local(vector_path, embedding,\\  
+allow_dangerous_deserialization=True)
 
-`retriever = vectorstore.as_retriever().configurable_fields(`
+retriever = vectorstore.as_retriever().configurable_fields(
 
-`search_kwargs=ConfigurableField(id="search_kwargs")`
+search_kwargs=ConfigurableField(id="search_kwargs")
 
-`).with_config({"search_kwargs": {"k": 5}})`
+).with_config({"search_kwargs": {"k": 5}})
 
-`template =`
-`"""\<\|begin_of_text\|\>\<\|start_header_id\|\>system\<\|end_header_id\|\>`
+template =
+"""\<\|begin_of_text\|\>\<\|start_header_id\|\>system\<\|end_header_id\|\>
 
-`You are a helpful assistant. Use the following context to\\  
-answer the question.`
+You are a helpful assistant. Use the following context to\\  
+answer the question.
 
-`Context: {context}`
+Context: {context}
 
-`Question: {question}`
+Question: {question}
 
-`Answer: \<\|eot_id\|\>"""`
+Answer: \<\|eot_id\|\>"""
 
-`prompt = PromptTemplate(template=template,\\  `
-`input_variables=\["context", "question"\])`
+prompt = PromptTemplate(template=template,\\  
+input_variables=\["context", "question"\])
 
-`chain = (`
+chain = (
 
-`{"context": retriever \| format_docs, "question":\\  `
-`RunnablePassthrough()}`
+{"context": retriever \| format_docs, "question":\\  
+RunnablePassthrough()}
 
-`\| prompt`
+\| prompt
 
-`\| model`
+\| model
 
-`\| StrOutputParser()`
+\| StrOutputParser()
 
-`)`
+)
 
-`else:`
+else:
 
-`template =`
-`"""\<\|begin_of_text\|\>\<\|start_header_id\|\>system\<\|end_header_id\|\>`
+template =
+"""\<\|begin_of_text\|\>\<\|start_header_id\|\>system\<\|end_header_id\|\>
 
-`Question: {question}`
+Question: {question}
 
-`Answer: \<\|eot_id\|\>"""`
+Answer: \<\|eot_id\|\>"""
 
-`prompt = PromptTemplate(template=template,\\  `
-`input_variables=\["question"\])`
+prompt = PromptTemplate(template=template,\\  
+input_variables=\["question"\])
 
-`chain = RunnablePassthrough().assign(question=lambda x: x) \|\\  `
-`prompt \| model \| StrOutputParser()`
+chain = RunnablePassthrough().assign(question=lambda x: x) \|\\  
+prompt \| model \| StrOutputParser()
 
-`\# Generate response`
+\# Generate response
 
-`response = chain.invoke(question)`
+response = chain.invoke(question)
 
-`return jsonify({"answer": response})`
+return jsonify({"answer": response})
 
-`except Exception as e:`
+except Exception as e:
 
-`logger.exception("Error processing query")`
+logger.exception("Error processing query")
 
-`return jsonify({"error": str(e)}), 500`
+return jsonify({"error": str(e)}), 500
 
-`\# File Upload API`
+\# File Upload API
 
-`@app.route('/upload_file', methods=\['POST'\])`
+@app.route('/upload_file', methods=\['POST'\])
 
-`def upload_file():`
+def upload_file():
 
-`try:`
+try:
 
-`file = request.files\['file'\]`
+file = request.files\['file'\]
 
-`if file and file.filename.endswith('.pdf'):`
+if file and file.filename.endswith('.pdf'):
 
-`filename = os.path.join(TEMP_DIR, "uploaded.pdf")`
+filename = os.path.join(TEMP_DIR, "uploaded.pdf")
 
-`file.save(filename)`
+file.save(filename)
 
-`return jsonify({"status": "success", "path": filename})`
+return jsonify({"status": "success", "path": filename})
 
-`return jsonify({"error": "Invalid file"}), 400`
+return jsonify({"error": "Invalid file"}), 400
 
-`except Exception as e:`
+except Exception as e:
 
-`logger.exception("Error uploading file")`
+logger.exception("Error uploading file")
 
-`return jsonify({"error": str(e)}), 500`
+return jsonify({"error": str(e)}), 500
 
-`if \_\_name\_\_ == '\_\_main\_\_':`
+if \_\_name\_\_ == '\_\_main\_\_':
 
-`app.run(host='0.0.0.0', port=5000, debug=True)`
+app.run(host='0.0.0.0', port=5000, debug=True)
+```
 
 Run the following command to start the backend server.
 
@@ -2051,218 +2066,220 @@ ready to configure and start the frontend server.
 Using a text editor, create a file frontend.py with the following
 content.[^27]
 
-`import os`
+```
+import os
 
-`import requests`
+import requests
 
-`import time`
+import time
 
-`import streamlit as st`
+import streamlit as st
 
-`from PIL import Image`
+from PIL import Image
 
-`from typing import Dict, Any`
+from typing import Dict, Any
 
-`\# Configure paths and URLs`
+\# Configure paths and URLs
 
-`BASE_PATH = "\$HOME"`
+BASE_PATH = "\$HOME"
 
-`API_URL = "http://localhost:5000"`
+API_URL = "http://localhost:5000"
 
-`\# Page config`
+\# Page config
 
-`st.set_page_config(`
+st.set_page_config(
 
-`page_title="LLM RAG on Arm Neoverse CPU"`
+page_title="LLM RAG on Arm Neoverse CPU"
 
-`)`
+)
 
-`\# Title`
+\# Title
 
-`st.title("LLM RAG on Arm Neoverse CPU")`
+st.title("LLM RAG on Arm Neoverse CPU")
 
-`\# Sidebar`
+\# Sidebar
 
-`with st.sidebar:`
+with st.sidebar:
 
-`st.write("## Model Settings")`
+st.write("## Model Settings")
 
-`model = st.selectbox('Select LLM',`
-`\["llama3.1-8b-instruct.Q4_0_arm.gguf"\])`
+model = st.selectbox('Select LLM',
+\["llama3.1-8b-instruct.Q4_0_arm.gguf"\])
 
-`use_vectordb = st.checkbox("Use Vector Database")`
+use_vectordb = st.checkbox("Use Vector Database")
 
-`\# Initialize session state`
+\# Initialize session state
 
-`if 'messages' not in st.session_state:`
+if 'messages' not in st.session_state:
 
-`st.session_state.messages = \[\]`
+st.session_state.messages = \[\]
 
-`if 'vectordb_path' not in st.session_state:`
+if 'vectordb_path' not in st.session_state:
 
-`st.session_state.vectordb_path = None`
+st.session_state.vectordb_path = None
 
-`\# Vector Database Creation`
+\# Vector Database Creation
 
-`if use_vectordb:`
+if use_vectordb:
 
-`st.sidebar.write("## Vector Database")`
+st.sidebar.write("## Vector Database")
 
-`\# First select vector store type`
+\# First select vector store type
 
-`vector_store = st.sidebar.selectbox("Vector Storage Type", \["FAISS"\])`
+vector_store = st.sidebar.selectbox("Vector Storage Type", \["FAISS"\])
 
-`\# Then select action`
+\# Then select action
 
-`action = st.sidebar.radio("Action", \["Create New Store", "Load \\  `
-`Existing Store"\])`
+action = st.sidebar.radio("Action", \["Create New Store", "Load \\  
+Existing Store"\])
 
-`if action == "Create New Store":`
+if action == "Create New Store":
 
-`source = st.sidebar.radio("Source", \["PDF"\])`
+source = st.sidebar.radio("Source", \["PDF"\])
 
-`if source == "PDF":`
+if source == "PDF":
 
-`uploaded_file = st.sidebar.file_uploader("Upload PDF",\\  `
-`type="pdf")`
+uploaded_file = st.sidebar.file_uploader("Upload PDF",\\  
+type="pdf")
 
-`if uploaded_file:`
+if uploaded_file:
 
-`files = {'file': uploaded_file}`
+files = {'file': uploaded_file}
 
-`response = requests.post(f"{API_URL}/upload_file",\\  `
-`files=files)`
+response = requests.post(f"{API_URL}/upload_file",\\  
+files=files)
 
-`if response.ok:`
+if response.ok:
 
-`st.sidebar.success("File uploaded successfully")`
+st.sidebar.success("File uploaded successfully")
 
-`db_name = st.sidebar.text_input("Vector Index Name")`
+db_name = st.sidebar.text_input("Vector Index Name")
 
-`if st.sidebar.button("Create Index"):`
+if st.sidebar.button("Create Index"):
 
-`response = requests.post(`
+response = requests.post(
 
-`f"{API_URL}/create_vectordb",`
+f"{API_URL}/create_vectordb",
 
-`json={`
+json={
 
-`"vector_name": db_name,`
+"vector_name": db_name,
 
-`"chunk_size": 400,`
+"chunk_size": 400,
 
-`"doc_type": "PDF"`
+"doc_type": "PDF"
 
-`}`
+}
 
-`)`
+)
 
-`if response.ok:`
+if response.ok:
 
-`st.session_state.vectordb_path = \\  `
-`response.json()\['path'\]`
+st.session_state.vectordb_path = \\  
+response.json()\['path'\]
 
-`st.sidebar.success("Vector Index created!")`
+st.sidebar.success("Vector Index created!")
 
-`else:`
+else:
 
-`st.sidebar.error("Failed to create vector \\  `
-`Index")`
+st.sidebar.error("Failed to create vector \\  
+Index")
 
-`else: \# Load Existing`
+else: \# Load Existing
 
-`\# Updated directory handling`
+\# Updated directory handling
 
-`vector_dir = os.path.join(BASE_PATH, "vector")`
+vector_dir = os.path.join(BASE_PATH, "vector")
 
-`if os.path.exists(vector_dir):`
+if os.path.exists(vector_dir):
 
-`\# Get all directories that contain FAISS index files`
+\# Get all directories that contain FAISS index files
 
-`dbs = \[\]`
+dbs = \[\]
 
-`for root, dirs, files in os.walk(vector_dir):`
+for root, dirs, files in os.walk(vector_dir):
 
-`if "index.faiss" in files: \# Check for FAISS index file`
+if "index.faiss" in files: \# Check for FAISS index file
 
-`\# Get relative path from vector_dir`
+\# Get relative path from vector_dir
 
-`rel_path = os.path.relpath(root, vector_dir)`
+rel_path = os.path.relpath(root, vector_dir)
 
-`dbs.append(rel_path)`
+dbs.append(rel_path)
 
-`if dbs:`
+if dbs:
 
-`selected_db = st.sidebar.selectbox("Select Index", dbs)`
+selected_db = st.sidebar.selectbox("Select Index", dbs)
 
-`st.session_state.vectordb_path = os.path.join(vector_dir,\\  `
-`selected_db)`
+st.session_state.vectordb_path = os.path.join(vector_dir,\\  
+selected_db)
 
-`st.sidebar.success(f"Loaded index: {selected_db}")`
+st.sidebar.success(f"Loaded index: {selected_db}")
 
-`else:`
+else:
 
-`st.sidebar.warning("No existing indexes found. \\  `
-`Please create a new one.")`
+st.sidebar.warning("No existing indexes found. \\  
+Please create a new one.")
 
-`else:`
+else:
 
-`\# Create vector directory if it doesn't exist`
+\# Create vector directory if it doesn't exist
 
-`os.makedirs(vector_dir, exist_ok=True)`
+os.makedirs(vector_dir, exist_ok=True)
 
-`st.sidebar.warning("No indexes found. \\  `
-`Please create a new one.")`
+st.sidebar.warning("No indexes found. \\  
+Please create a new one.")
 
-`\# Chat interface`
+\# Chat interface
 
-`if use_vectordb and action == "Load Existing Store" and dbs:`
+if use_vectordb and action == "Load Existing Store" and dbs:
 
-`if prompt := st.chat_input("Ask a question"):`
+if prompt := st.chat_input("Ask a question"):
 
-`st.session_state.messages.append({"role": "user", "content": \\  `
-`prompt})`
+st.session_state.messages.append({"role": "user", "content": \\  
+prompt})
 
-`\# Display messages`
+\# Display messages
 
-`for msg in st.session_state.messages:`
+for msg in st.session_state.messages:
 
-`with st.chat_message(msg\["role"\]):`
+with st.chat_message(msg\["role"\]):
 
-`st.write(msg\["content"\])`
+st.write(msg\["content"\])
 
-`\# Get response`
+\# Get response
 
-`with st.chat_message("assistant"):`
+with st.chat_message("assistant"):
 
-`response = requests.post(`
+response = requests.post(
 
-`f"{API_URL}/query",`
+f"{API_URL}/query",
 
-`json={`
+json={
 
-`"question": prompt,`
+"question": prompt,
 
-`"vector_path": st.session_state.vectordb_path,`
+"vector_path": st.session_state.vectordb_path,
 
-`"use_vectordb": use_vectordb`
+"use_vectordb": use_vectordb
 
-`}`
+}
 
-`)`
+)
 
-`if response.ok:`
+if response.ok:
 
-`answer = response.json()\['answer'\]`
+answer = response.json()\['answer'\]
 
-`st.write(answer)`
+st.write(answer)
 
-`st.session_state.messages.append({"role": "assistant",\\  `
-`"content": answer})`
+st.session_state.messages.append({"role": "assistant",\\  
+"content": answer})
 
-`else:`
+else:
 
-`st.error("Failed to get response from the model")`
+st.error("Failed to get response from the model")
+```
 
 Run the following command to start the frontend server:
 
