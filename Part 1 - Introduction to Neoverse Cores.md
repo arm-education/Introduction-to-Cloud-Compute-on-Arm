@@ -1,4 +1,4 @@
-# Part 1—Introduction to Neoverse Cores
+# Part 1—Introduction to Neoverse Cores 
 
 # 1. Introduction
 
@@ -20,7 +20,7 @@ tool selection and software development methodology. This can also serve
 as a resource for those looking to learn or teach about server
 computing.
 
-## 1.2 Scope
+## 1.2  Scope
 
 This text covers an introduction to the Neoverse range of processor
 cores, a taxonomy of the devices currently available, major producers
@@ -30,7 +30,7 @@ architecture and product range, this is not primarily a history book.
 Only historic features that have a bearing on current architectures will
 be discussed in any detail.
 
-## 1.3 Audience
+## 1.3  Audience
 
 The primary audience for this resource is software developers or those
 looking to learn or teach about server computing. Much of the material
@@ -39,7 +39,7 @@ electronic engineers. However, they don’t represent the target audience
 and will need to refer to further and more detailed texts to find the
 knowledge they require.
 
-## 1.4 Summary
+## 1.4  Summary
 
 Beginning with an introduction to Arm, its history and current market
 positioning, we then outline the development of the Arm architecture
@@ -48,7 +48,7 @@ rest of the book concentrates on the range of processors that are
 produced under the Neoverse brand. The approach taken is primarily
 driven by the needs of software developers.
 
-## 1.5 Currency
+## 1.5  Currency
 
 While all information presented is correct at time of publication—as far
 as the authors can ensure—readers must bear in mind that the
@@ -58,53 +58,52 @@ regularly, enabling new use cases and unlocking new target markets. The
 reader is advised to refer to external sources for the latest
 developments.
 
-## 1.6 References and Related Reading
+## 1.6  References and Related Reading
 
 - Arm Architecture Reference Manual for A-profile Architecture (ARM DDI
-  0487K)
+0487K)
 
 - Arm<sup>®</sup> Neoverse™ V3 Core Software Optimization Guide
-  (PJDOC–1505342170–661452)
+(PJDOC–1505342170–661452)
 
 - Arm<sup>®</sup> Neoverse™ V2 Core Technical Reference Manual (Arm
-  102375_0002_03_en)
+102375_0002_03_en)
 
-- Arm<sup>®</sup> Neoverse™ N3 Core Software Optimization Guide (Arm
-  109637)
+- Arm<sup>®</sup> Neoverse™ N3 Core Software Optimization Guide (Arm 109637)
 
 - Arm<sup>®</sup> Neoverse™ V2 Core Software Optimization Guide
-  (PJDOC–466751330–593177)
+(PJDOC–466751330–593177)
 
 - Arm<sup>®</sup> Cortex™–A Series Programmer’s Guide (ARM DEN0013D,
-  4<sup>th</sup> Edition)
+4<sup>th</sup> Edition)
 
 - Arm<sup>®</sup> Neoverse™ N2 Reference Design Technical Overview (Arm
-  102337_0000_04_en)
+102337_0000_04_en)
 
-- Arm<sup>®</sup> CoreLink™ GIC–700 Generic Interrupt Controller
-  Technical Reference Manual, Document ID 101516_0400_12_en
+- Arm<sup>®</sup> CoreLink™ GIC–700 Generic Interrupt Controller Technical
+Reference Manual, Document ID 101516_0400_12_en
 
 - Arm<sup>®</sup> CoreLink™ MMU–700 System Memory Management Unit
-  Technical Reference Manual, Document ID 101542_0001_04_en
+Technical Reference Manual, Document ID 101542_0001_04_en
 
-- Arm<sup>®</sup> CoreLink™ NI–700 Network‐on‐Chip Interconnect
-  Technical Reference Manual, Document ID: 101566_0203_10_en
+- Arm<sup>®</sup> CoreLink™ NI–700 Network‐on‐Chip Interconnect Technical
+Reference Manual, Document ID: 101566_0203_10_en
 
 - Arm<sup>®</sup> CoreLink™ CMN–700 Technical Reference Manual, Document
-  ID: 102308_0302_07_en
+ID: 102308_0302_07_en
 
 - Arm<sup>®</sup> CoreLink™ NIC–450 Network Interface Connect Technical
-  Overview, Document ID: 100459_0000_01_en
+Overview, Document ID: 100459_0000_01_en
 
 - Arm<sup>®</sup> DynamIQ™ Shared Unit Technical Reference Manual,
-  Document ID: 102547_0201_07_en
+Document ID: 102547_0201_07_en
 
-## 1.7 Glossary
+## 1.7  Glossary
 
 A full Arm glossary can be found on Arm’s website, Document ID
 105565_0200_02_en.
 
-# 2. Introduction to Arm
+# 2.  Introduction to Arm
 
 Arm<sup>®</sup> processors are found everywhere. A couple of decades
 ago, the Arm ecosystem passed the milestone of producing more processors
@@ -147,8 +146,8 @@ As well as the relentless drive for ever-greater power efficiency and
 scalability, Arm has worked to broaden the ecosystem in every direction.
 The initial markets in the deeply embedded space, centered around mobile
 phones, are still hugely significant to Arm’s activities, but these have
-been joined by other market segment such as automotive, machine
-learning, and artificial intelligence.
+been joined by other market segment such as automotive, machine learning
+and artificial intelligence.
 
 As you shall see later when looking at the evolution of the Arm
 architecture and product range, new markets very often require new
@@ -160,10 +159,10 @@ power efficiency, ease of manufacture, security, reliability,
 throughput, and other factors. These are some of the considerations
 which drive the choice of an appropriate platform for any new product.
 
-For further information about Arm, please check the [Arm
-website](https://www.arm.com).
+For further information about Arm, please check the [<u>Arm
+website</u>](https://www.arm.com/resources/education).
 
-# 3. Development of the Arm Architecture
+# 3.  Development of the Arm Architecture
 
 This chapter covers the evolution of the Arm<sup>®</sup> architecture
 from its earliest days through to the introduction of the Armv9
@@ -201,7 +200,7 @@ You should keep aware of this fundamental distinction between
 architecture and implementation when dealing with Arm-based compute
 devices.
 
-## 3.1 Early Days
+## 3.1  Early Days
 
 The first Arm processor was developed by Acorn Computers—a British
 manufacturer of personal computers, founded in Cambridge in 1978 by
@@ -231,7 +230,7 @@ staff), Apple (the first customer and supplier of seed finance), and
 VLSI (who fabricated the first devices). The company set itself the
 ambitious mission of becoming the “global processor standard”. For its
 flotation on the London Stock Exchange in 1999, it renamed itself as
-“ARM”.[^1]
+“Arm”.[^1]
 
 Apple invested in Arm in order to gain access to the processor for its
 Apple Newton PDA. While this product was not successful in the
@@ -250,7 +249,7 @@ for production of a System-on-Chip to be used in Nokia’s mobile phones,
 it catapulted Arm to the forefront of the industry, a position which it
 has occupied ever since.
 
-## 3.2 Rapid Evolution
+## 3.2  Rapid Evolution
 
 Acorn Computers bequeathed the Arm3 processor to Advanced RISC Machines,
 when it was founded in 1990. This processor was far simpler and smaller
@@ -374,7 +373,7 @@ up to four cores in a single cluster; and the TrustZone<sup>®</sup>
 security architecture addressed the growing need for greater security at
 the hardware level.
 
-## 3.3 Diversification
+## 3.3  Diversification
 
 In the early 2000s, it became obvious that a single architecture could
 no longer cope with the enormous breadth of use cases for Arm
@@ -392,7 +391,7 @@ during the synthesis and integration process based on factors such as
 functional safety, multicore requirements, security, DSP and Multimedia
 capability, cryptography, and compartmentalization.
 
-### 3.3.1 Cortex–A for Application Class Processors
+### 3.3.1  Cortex–A for Application Class Processors
 
 Cortex–A comprises implementations of the Armv7–A, Armv8–A and Armv9–A
 architecture profiles. These remain the pinnacle of performance and
@@ -437,7 +436,7 @@ Armv8.5–A became the baseline for Armv9–A, introducing Memory Tagging
 Extension (MTE) and Branch Target Indicators (BTI) to combat illegal
 memory accesses and arbitrary code execution.
 
-### 3.3.2 Cortex–R for Hard Real-Time Processors
+### 3.3.2  Cortex–R for Hard Real-Time Processors
 
 The ‘R’ profile architectures are specifically targeted at applications
 needing hard real-time response. Modifications to the pipeline,
@@ -451,7 +450,7 @@ automotive management, and high-speed modems.
 From Armv8–R, these processors have the option of supporting the A64
 64-bit instruction set.
 
-### 3.3.3 Cortex–M for Microcontrollers
+### 3.3.3  Cortex–M for Microcontrollers
 
 The M profile is significantly different from the other two profiles and
 is aimed specifically at deeply embedded microcontrollers. These cores
@@ -466,7 +465,7 @@ name is similar, the implementation is significantly different to the
 TrustZone security architecture found on A and R profile cores. It also
 supports the Helium vector processing instruction set extension.
 
-## 3.4 Current Drivers of Architectural Change
+## 3.4  Current Drivers of Architectural Change
 
 The latest Arm architectures are driven, as ever, by the changing and
 evolving needs of the electronics industry. While the mobile phone
@@ -482,7 +481,7 @@ the architecture is focused on the A–profile cores, aiming to provide
 the highest possible performance, particularly for data center, machine
 learning, and artificial intelligence workloads.
 
-## 3.5 Other Products and Activities
+## 3.5  Other Products and Activities
 
 Like any processor architecture, developing a product requires more than
 just manufacturing or buying the processor device itself. Development
@@ -490,11 +489,11 @@ tooling, source management, operating systems, middleware, and firmware
 must either be developed in-house, or sourced from Arm or third parties.
 
 From the earliest days, Arm has produced standard tools solutions that
-are either sold commercially, or made available via contributions to
-Free and Open-Source Software (FOSS) projects. At the beginning, Arm was
-the only source of its architecture devices, so it needed also to
-produce and sell its own range of tools (compiler, assembler, linker,
-librarian, debugger, etc.) as no other supplier was available.
+are either sold commercially or made available via contributions to Free
+and Open-Source Software (FOSS) projects. At the beginning, Arm was the
+only source of its architecture devices, so it needed also to produce
+and sell its own range of tools (compiler, assembler, linker, librarian,
+debugger, etc.) as no other supplier was available.
 
 Texas Instruments—one of the first licensees—wrote its own tooling
 solutions. But an increasing number of third-party suppliers partnered
@@ -505,7 +504,7 @@ architectures.
 The tooling situation for cloud-based development is necessarily
 different and will be explained in detail in subsequent chapters.
 
-# 4. Armv9 Overview
+# 4.  Armv9 Overview
 
 Armv9 represents the current state-of-the-art Arm architecture for
 high–performance computing applications. It has been announced in
@@ -542,7 +541,7 @@ taxonomy of the architecture. §4.1 below provides a brief introduction
 to exceptions, operating modes and states, instruction sets, and
 security states and should be read before continuing.
 
-## 4.1 Exceptions, Modes, States, and Instruction Sets
+## 4.1  Exceptions, Modes, States and Instruction Sets
 
 Some level of awareness of the internals of the Arm architecture is
 necessary for any meaningful discussion about Arm processors. This
@@ -555,7 +554,7 @@ modes, which are of only historical interest, nor the Armv7–M
 architecture supported by the Cortex–M microcontrollers, which is
 significantly different.
 
-### 4.1.1 Exceptions and Operating Modes
+### 4.1.1  Exceptions and Operating Modes
 
 In the Arm architecture, exceptions and operating modes are closely
 linked. In architecture Armv7—and all earlier versions of the
@@ -587,7 +586,7 @@ operating system. The Armv7 modes are:
 - System, a privileged mode that is not entered via an exception
 
 - SVC, entered on reset and on execution of a Software Interrupt (SWI)
-  instruction
+instruction
 
 - User, the only unprivileged mode, used to execute user code
 
@@ -604,19 +603,19 @@ Armv9–A adds another layer to this, with four “exception levels”—or EL,
 listed here in increasing order of privilege:
 
 - EL0, the lowest level of privilege, usually used for execution of user
-  applications
+applications
 
 - EL1, typically used for execution of a rich operating system, such as
-  Linux
+Linux
 
 - EL2, which can be used for hypervisors
 
-- EL3, the highest level of privilege, typically reserved for firmware
-  and security gateway code
+- EL3, the highest level of privilege, typically reserved for firmware and
+security gateway code
 
 A typical usage model for these exception levels is shown in Figure 1.
 
-<img src="./media/image2.png" style="width:5.75in;height:3.98958in" />
+<img src="./media/image1.png" style="width:5.75in;height:3.98958in" />
 
 Figure 1 – Exception levels
 
@@ -633,7 +632,7 @@ usually implemented, since EL2 supports the virtualization features
 required by most hypervisors, and EL3 is the only EL which can change
 security state.
 
-### 4.1.2 Execution States and Instruction Sets
+### 4.1.2  Execution States and Instruction Sets
 
 Armv8–A and Armv9–A processors support two execution states: AArch32, a
 32-bit execution state; and AArch64, a 64-bit execution state. In
@@ -652,18 +651,18 @@ same or change to AArch64. The rules on changing exception level and
 execution state have a number of implications:
 
 - If AArch32 is not implemented at a particular EL, then it cannot be
-  implemented at any higher levels.
+implemented at any higher levels.
 
-- AArch32 software at any particular EL can only host AArch32 software
-  at any lower levels.
+- AArch32 software at any particular EL can only host AArch32 software at
+any lower levels.
 
 - An AArch64 operating system executing at EL1 can host both AArch32 and
-  AArch64 software executing at EL0.
+AArch64 software executing at EL0.
 
-- An AArch64 hypervisor executing at EL2 can host both AArch32 and
-  AArch64 software executing at EL1.
+- An AArch64 hypervisor executing at EL2 can host both AArch32 and AArch64
+software executing at EL1.
 
-<img src="./media/image3.png" style="width:6.26806in;height:1.62847in"
+<img src="./media/image2.png" style="width:6.26806in;height:1.62847in"
 alt="A close-up of a screen Description automatically generated" />
 
 Figure 2– Exception levels and Execution States
@@ -671,7 +670,7 @@ Figure 2– Exception levels and Execution States
 In AArch32:
 
 - Operation is backwards-compatible with Armv7–A and previous
-  architectures.
+architectures.
 
 - The A32 and T32 instruction sets are available.[^5]
 
@@ -682,7 +681,7 @@ In AArch64:
 - Only the A64 instruction set is available.
 
 - The general-purpose register set is expanded, both in width and in
-  number, compared to Armv7–A and earlier architectures.
+number, compared to Armv7–A and earlier architectures.
 
 A32 is the direct descendant of the original instruction set used by the
 earliest Arm processors. In A32, all instructions are 32 bits wide and
@@ -710,7 +709,7 @@ indicated by the value of the T bit within the CPSR. A change of state
 can only be caused by a branch or return instruction, or on entry to, or
 return from, an exception.
 
-### 4.1.3 Security States
+### 4.1.3  Security States
 
 Most Cortex–A processors support two security states: Secure and
 Non-Secure.[^7] Certain processor features are architecturally
@@ -737,7 +736,7 @@ system, the only route into Secure state is through a Secure Monitor,
 which executes in EL3. An example system configuration is shown in
 Figure 3.
 
-<img src="./media/image4.png" style="width:5.75in;height:2.36458in" />
+<img src="./media/image3.png" style="width:5.75in;height:2.36458in" />
 
 Figure 3 – Exception Levels, Security States and Execution States
 
@@ -751,11 +750,11 @@ specific RME hardware features, this provides robust
 compartmentalization and greatly enhances security. Figure 4 shows an
 example configuration when RME is implemented.
 
-<img src="./media/image5.png" style="width:5.75in;height:2.69792in" />
+<img src="./media/image4.png" style="width:5.75in;height:2.69792in" />
 
 Figure 4 – RME Security States
 
-## 4.2 Armv9.0–A
+## 4.2  Armv9.0–A
 
 The Armv9.0–A architecture was announced in 2021, baselined on
 Armv8.5–A.
@@ -778,13 +777,7 @@ isolated from each other. As well as hardware support, a standard
 firmware architecture is also specified. CCA is a combination of a
 number of architecture extensions, including Realm Management Extension
 (RME), Dynamic TrustZone<sup>®</sup> Technology, Real Management Monitor
-(RMM), and standard CCA firmware. Going beyond the separation provided
-by TrustZone, Arm CCA allows system management software (e.g.
-hypervisors) to exert control over processes (e.g. within virtual
-machines) but removes the right of access to any code, state, or data
-information used by or within those processes. This allows developers to
-deploy workloads securely without needing to trust the software
-infrastructure supporting them.
+(RMM), and standard CCA firmware.
 
 TME provides for Hardware Transactional Memory (HTM), which allows
 sequences of instructions to be executed by the processor atomically.
@@ -813,7 +806,7 @@ easier for compilers to vectorize key algorithms. Support is also
 introduced to accelerate key algorithms employed by the widely used
 Advanced Encryption Standard (AES).
 
-## 4.3 Armv9.1–A
+## 4.3  Armv9.1–A
 
 Armv9.1–A was announced in September 2019 and builds on both Armv9–0–A
 and Armv8.6–A. All mandatory features from those two earlier
@@ -823,15 +816,14 @@ New features introduced include:
 
 - additional floating-point matrix multiply instructions (GEMM);
 
-- extensions to the Embedded Trace Extension introduced in Armv9.0–A;
-  and
+- extensions to the Embedded Trace Extension introduced in Armv9.0–A; and
 
 - Memory Partitioning and Monitoring (MPAM), which allows the system to
-  monitor and restrict the memory bandwidth used by individual
-  processes, in order to manage and mitigate the effect on performance
-  of other processes.
+monitor and restrict the memory bandwidth used by individual processes,
+in order to manage and mitigate the effect on performance of other
+processes.
 
-## 4.4 Armv9.2–A
+## 4.4  Armv9.2–A
 
 Armv9.2–A, baselined on Armv8.7–A, was announced in September 2020, and
 includes some minor instruction set enhancements, and an extension to
@@ -848,13 +840,13 @@ Realm Management. Main changes include:
 - further extensions to ETE to support Realm Management (RME);
 
 - Scalable Matrix Extension (SME) (Optional—allows tiled storage of
-  vectors in registers);
+vectors in registers);
 
 - Realm Management Extension (RME) (Optional); and
 
 - Branch–Record recording (Optional—captures execution path history).
 
-## 4.5 Armv9.3–A
+## 4.5  Armv9.3–A
 
 Armv9.3–A, baselined on Armv8.8–A, was announced in September 2021.
 Additions include:
@@ -862,59 +854,55 @@ Additions include:
 - Branch Recording in EL3;
 
 - “Non–maskable” (NMI) and “less-maskable” interrupts (LMI) for NMI for
-  AArch64;
+AArch64;
 
 - memcpy and memset instructions;
 
 - hinted conditional branches (the ability to include hints with branch
-  instructions, which helps the branch prediction logic by indicating
-  that a particular branch is consistent and is unlikely to change
-  direction);
+instructions, which helps the branch prediction logic by indicating that
+a particular branch is consistent and is unlikely to change direction);
 
 - Scalable Matrix Extensions v2 (Optional), which introduces the ability
-  to re-address two-dimensional tiles as groups of one–dimensional
-  vectors; and
+to re-address two-dimensional tiles as groups of one–dimensional
+vectors; and
 
 - Memory Encryption Contexts (MEC) (Optional)—an extension to RME that
-  provides additional contexts for memory encryption linked to existing
-  realms.
+provides additional contexts for memory encryption linked to existing
+realms.
 
-## 4.6 Armv9.4–A
+## 4.6  Armv9.4–A
 
 Armv9.4–A, baselined on Armv8.9–A, was announced in September 2022.
 Additions include:
 
 - improved security against attacks that use branch history to infer and
-  manipulate execution;
+manipulate execution;
 
 - VMSA enhancements including 128–bit translation tables, system
-  registers, and atomic 128–bit instructions (Optional);
+registers, and atomic 128–bit instructions (Optional);
 
-- SME2 and SVE2.1 (Optional), which add a number of extra instructions
-  to SME and SVE2 to improve matrix and vector operations; and
+- SME2 and SVE2.1 (Optional), which add a number of extra instructions to
+SME and SVE2 to improve matrix and vector operations; and
 
-- Guarded Control Stack (Optional)—a separate memory area for the
-  storage of exception returns and branch returns, protected from
-  modification.
+- Guarded Control Stack (Optional)—a separate memory area for the storage
+of exception returns and branch returns, protected from modification.
 
-## 4.7 Armv9.5–A
+## 4.7  Armv9.5–A
 
 Armv9.5–A (October 2023) introduces:
 
-8–bit Floating Point (FP8) support added to SME2, SVE2 and Neon™.
+- 8–bit Floating Point (FP8) support added to SME2, SVE2 and Neon™.
 
-## 4.8 Armv9.6–A
+## 4.8  Armv9.6–A
 
 Armv9.6–A (October 2024) introduces:
 
-- MPAM Domains for improved support of shared memory in multi-chiplet
-  and chip systems; and
+- MPAM Domains for improved support of shared memory in multi-chiplet and
+chip systems; and
 
 - Granular Data Isolation for Confidential Compute.
 
-## 4.9 Lab exercise
-
-# 5. The Neoverse Cores
+# 5.  The Neoverse Cores
 
 So far, you have read about the development of two distinct threads in
 the Arm<sup>®</sup> product range. Firstly, the evolution of the
@@ -948,7 +936,7 @@ chapter, the list of currently available Neoverse devices. They are
 wonderfully diverse, and this diversity is one of the strengths of the
 Arm product family.
 
-## 5.1 Architecture, Implementation and Manufacturing
+## 5.1  Architecture, Implementation and Manufacturing
 
 Much of the base functionality of a particular device is defined in the
 architecture. While some of it may be optional, it is essentially
@@ -958,7 +946,7 @@ manufactures the device, and they have significant freedom here.
 Some sources make the distinction between architectural,
 microarchitectural, and implementational behavior.
 
-### 5.1.1 Architecturally-Defined Behavior
+### 5.1.1  Architecturally-Defined Behavior
 
 In the preceding sections, you have looked at some of the behaviors that
 are mandated by the architecture itself. The consistency across the
@@ -996,7 +984,7 @@ and the behavior of their products depends on both the architecture and
 on the specific implementation deployed by the licensee. In many cases,
 that implementation might be proprietary.
 
-### 5.1.2 Implementation Decisions—Microarchitecture
+### 5.1.2  Implementation Decisions—Microarchitecture
 
 The process of “implementation” involves taking the HDL source code for
 the hardware from Arm and transforming that into a description of a
@@ -1010,7 +998,7 @@ Those choices might include:
 - whether certain optional architectural features are implemented;
 
 - the size and scope of processor and associated logic, such as caches,
-  buses, and interconnect architecture;
+buses, and interconnect architecture;
 
 - the number and organization of processing elements; and
 
@@ -1028,7 +1016,7 @@ great effect on the performance of the production device, but the way
 that the device responds to an instruction stream must conform to the
 architecture.
 
-### 5.1.3 Manufacturing Variation
+### 5.1.3  Manufacturing Variation
 
 The process of taking configured HDL, synthesizing it to a netlist,
 physically producing the resultant silicon, and packaging this into a
@@ -1045,7 +1033,7 @@ geometric size of the transistors, wires, and gates which constitute the
 device—but many other choices contribute to significant variation in the
 resulting product.
 
-## 5.2 Neoverse Overview
+## 5.2  Neoverse Overview
 
 The Neoverse cores from Arm are specifically designed and configured for
 use in cloud computing environments. But each cloud computing
@@ -1078,7 +1066,7 @@ the datacenter.
 The table in 5.9 summarizes some of the more important features provided
 by each Neoverse core.
 
-## 5.3 Neoverse V–Series
+## 5.3  Neoverse V–Series
 
 Neoverse V is the performance-first flagship for Neoverse, offering the
 highest performance with the fewest compromises in the implementation.
@@ -1086,14 +1074,14 @@ As such, cores in the Neoverse V–Series are targeted at high-performance
 computing in the cloud and acceleration for machine learning and
 artificial intelligence tasks.
 
-### 5.3.1 Neoverse V1
+### 5.3.1  Neoverse V1
 
 The Arm Neoverse V1 core, based on Armv8.5–A, was the first Arm core to
 include Scalable Vector Extension support, providing 2× 256b SVE
 pipelines and twice the floating-point performance capability of the
 earlier Neoverse N1.
 
-### 5.3.2 Neoverse V2
+### 5.3.2  Neoverse V2
 
 The Arm Neoverse V2 was the first Neoverse core based on Armv9
 architecture. It has significantly larger caches than Neoverse V1, and
@@ -1103,7 +1091,7 @@ performance on cloud and machine learning workloads.
 CPUs based on Neoverse V2 include AWS Graviton4, Google Axion, and
 NVIDIA Grace.
 
-### 5.3.3 Neoverse V3 and Neoverse V3–AE
+### 5.3.3  Neoverse V3 and Neoverse V3–AE
 
 Neoverse V3 is currently the highest–performance core provided by Arm.
 Based on architecture Armv9.2–A, it implements the latest CCA security
@@ -1119,9 +1107,9 @@ Arm Neoverse V3–AE is a variant of Neoverse V3 that implements security
 and safety enhancements to enable deployment in environments—such as
 automotive—where Functional Safety certification is required.
 
-## 5.4 Neoverse N
+## 5.4  Neoverse N
 
-### 5.4.1 Neoverse N1
+### 5.4.1.  Neoverse N1
 
 The Neoverse N1 is engineered for high scalability, making it
 particularly suited for the infrastructure between the cloud and edge.
@@ -1134,13 +1122,13 @@ Neoverse N1 and Neoverse E1 share a common software architecture which
 allows for seamless heterogeneous systems encompassing both the edge and
 the cloud.
 
-### 5.4.2 Neoverse N2
+### 5.4.2  Neoverse N2
 
 Neoverse N2 increases scalar performance over Neoverse N1 by 40%. Built
 on Armv9.0–A it includes enhancements to improve scalability,
 performance and security.
 
-### 5.4.3 Neoverse N3
+### 5.4.3  Neoverse N3
 
 Arm Neoverse N3 is the highest-performance core in the Neoverse N range,
 yielding approximately three times the performance of Neoverse N2 for
@@ -1148,7 +1136,7 @@ machine learning workloads. The advanced design also improves power
 efficiency (measured in MIPS per watt) by 20%, improving efficiency on
 multi-core deployments.
 
-## 5.5 Neoverse E1
+## 5.5  Neoverse E1
 
 The Neoverse E1 processor is built to Armv8.2–A with emphasis on power
 efficiency and data throughput. This makes it particularly well suited
@@ -1162,7 +1150,7 @@ Compared to the earlier Cortex–A53, The Neoverse E1 delivers over double
 the compute performance, nearly three times higher throughput
 performance, and more than double the power efficiency.
 
-## 5.6 Neoverse Compute Subsystems
+## 5.6  Neoverse Compute Subsystems
 
 The processor is not the only ingredient when implementing a device
 suitable for deployment in the data center and allied infrastructure.
@@ -1194,7 +1182,7 @@ include Neoverse processors. These details are relevant to silicon
 designers but not necessarily directly relevant to software developers,
 so these details are included here only for completeness.
 
-### 5.6.1 Neoverse CSS V3 
+### 5.6.1  Neoverse CSS V3
 
 The CSS V3 platform is configured and verified for high-performance
 cloud, HPC, artificial intelligence and machine learning workloads. It
@@ -1203,7 +1191,7 @@ subsystem and allows AI accelerators to be connected easily. The system
 supports up to 12 channels of (LP)DDR5 memory, up to 64-lane PCIe or CXL
 I/O, and high-speed die-to-die connections.
 
-### 5.6.2 Neoverse CSS N3 
+### 5.6.2  Neoverse CSS N3
 
 This platform is based around Neoverse N3 and is targeted for
 networking, 5G, and infrastructure edge deployment.
@@ -1212,7 +1200,7 @@ CSS N3 supports between 8 and 32 Neoverse N3 cores per die, and includes
 on-chip and off-chip interfaces for (LP)DDR5 memory, up to 32–lane PCIe
 or CXL I/O, and high-speed die-to-die connections.
 
-### 5.6.3 Neoverse CSS N2
+### 5.6.3  Neoverse CSS N2
 
 Neoverse CSS–N2 supports up to 64 Neoverse N2 cores, and is targeted for
 an advanced 5 nm manufacturing process. Neoverse CSS N2 CSS interfaces
@@ -1434,13 +1422,13 @@ role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
-## 5.7 Feature Summary
+## 5.7  Feature Summary
 
 The table shows a summary of features for all the current Neoverse cores
 that are most relevant to software developers. It is not an exhaustive
 list—please refer to Arm’s website for up-to-date details.
 
-### 5.7.1 Correlation with x86 Features
+### 5.7.1  Correlation with x86 Features
 
 The predominant alternative architecture in use in the data center is
 x86, primarily in devices supplied by Intel and AMD. In a similar way to
@@ -1503,7 +1491,7 @@ role="doc-noteref"><sup>3</sup></a> processing</td>
 <td>Machine learning, scientific computing</td>
 <td><p><strong>Scalable Vector Extension</strong></p>
 <p><strong>SVE (Armv8.2–A)</strong></p>
-<p><strong>SVE2 (Armv9-A)</strong></p></td>
+<p><strong>SVE2 (Armv9–A)</strong></p></td>
 </tr>
 <tr>
 <td><p>Advanced Encryption Standard New Instructions</p>
@@ -1560,7 +1548,7 @@ href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
-# 6. Available Implementations
+# 6.  Available Implementations
 
 The Neoverse™ range of cores has been licensed by many of Arm’s
 partners, ranging from established players in the high–performance
@@ -1605,7 +1593,7 @@ there is also a degree of standardization, which allows for an
 increasing degree of interoperability between platforms and software
 components.
 
-## 6.1 SystemReady
+## 6.1  SystemReady
 
 One consequence of the extensive flexibility that Arm’s licensees have
 in turning processor designs into finished devices is the wide diversity
@@ -1635,13 +1623,13 @@ SystemReady SR.
 SystemReady is managed by Arm, in collaboration with its partners.
 Certifications are issued by Arm to compliant platforms.
 
-## 6.2 Silicon Implementations of Neoverse Cores
+## 6.2  Silicon Implementations of Neoverse Cores
 
 This section only presents an overview. For detailed and up-to-date
 specifications for all the listed products, please refer to the
 manufacturer’s website.
 
-### 6.2.1 Ampere 
+### 6.2.1  Ampere
 
 Ampere was founded in Santa Clara, California, in 2017, with the goal of
 developing Arm-based server processors. Its early products were based on
@@ -1654,7 +1642,7 @@ line, built to Armv8.6–A, scales to 256 cores per chip.
 Ampere’s processors are deployed in the cloud by Oracle, Google,
 Microsoft, HPE, and others.
 
-### 6.2.2 Annapurna Labs
+### 6.2.2  Annapurna Labs
 
 Annapurna Labs was founded in Israel in 2011. Since 2015, it has been a
 wholly-owned subsidiary of AWS. Its main product line, Graviton, is now
@@ -1667,7 +1655,7 @@ Graviton cores are deployed in the cloud by AWS. Graviton4 is a 96-core
 Neoverse V2 device made available in a number of AWS EC2 instances in
 the cloud.
 
-### 6.2.3 Google
+### 6.2.3  Google
 
 Google’s Axion processors are based on Neoverse V2, implementing
 Armv9.0–A. Announced in early 2024, Axion–based servers are
@@ -1675,7 +1663,7 @@ SystemReady-compliant, and are available via a number of Google Cloud
 services, including Google Compute Engine, DataProc, DataFlow, Cloud
 Batch, and Google Kubernetes Engine.
 
-### 6.2.4 Marvell
+### 6.2.4  Marvell
 
 Marvell acquired Cavium in 2018, inheriting the ThunderX and Octeon
 processor lines. Early Octeon processors implemented the MIPS64
@@ -1689,7 +1677,7 @@ Octeon 10 is a family of DPUs[^9] targeted at dataplane acceleration and
 high-speed packet processing for 5G wireless infrastructure. Octeon 10
 is built around a multi-core Neoverse N2 architecture with 8–24 cores.
 
-### 6.2.5 Microsoft
+### 6.2.5  Microsoft
 
 Microsoft’s Azure Compute Platform cloud service provides solutions
 based on Ampere Altra and on Microsoft’s in-house Cobalt 100 processor.
@@ -1704,7 +1692,7 @@ Arm–based instances are deployed in the following families:
 
 - E–Family (memory-intensive workloads on Cobalt 100 or Ampere Altra)
 
-### 6.2.6 NVIDIA
+### 6.2.6  NVIDIA
 
 NVIDIA announced the Grace CPU in 2021, targeted at high-performance
 compute and AI workloads in the datacenter.
@@ -1713,15 +1701,15 @@ Grace incorporates 72 Neoverse V2 cores and implemented Armv9.0A. The
 Grace CPU is available in several implementations including: 
 
 - NVIDIA Grace C1 (single-die, 72 Neoverse V2 cores), targeting
-  traditional datacenter workloads 
+traditional datacenter workloads 
 
 - NVIDIA Grace CPU Superchip (two-die, 144 Neoverse V2 cores) targeting
-  HPC workloads 
+HPC workloads 
 
 - NVIDIA Grace–Hopper and Grace–Blackwell Superchips, designed for
-  high-performance on AI training and inference workloads 
+high-performance on AI training and inference workloads 
 
-## 6.3 Cloud Implementations
+## 6.3  Cloud Implementations
 
 This section presents only overview information. For detailed and
 up-to-date specifications for all the listed products, please refer to
@@ -1741,7 +1729,7 @@ in particular geographies, and some may have limited offerings in
 certain locations. As usual, check with each vendor’s website for
 up-to-date availability information.
 
-### 6.3.1 Google Cloud
+### 6.3.1  Google Cloud
 
 Google Cloud makes Arm instances available in a number of ways, all
 through the General-purpose Machine Family within Google Cloud Compute
@@ -1769,7 +1757,7 @@ streaming.
 
 **c4a–highmem**—memory-optimized, 1–72 vCPUs, 8 GB per CPU
 
-### 6.3.2 Microsoft Azure Compute Platform
+### 6.3.2  Microsoft Azure Compute Platform
 
 Arm processors power a number of virtual machines in the Compute
 Platform family. These include:
@@ -1787,7 +1775,7 @@ per CPU, also available with local disk storage
 **Epsv5**—memory-intensive enterprise workloads, Ampere Altra, 2–32
 vCPUs, up to 8 GB per CPU, also available with local disk storage
 
-### 6.3.3 Oracle
+### 6.3.3.  Oracle
 
 Oracle Cloud Infrastructure (OCI) offers a combination of configurable
 Virtual Machine (VM) instances and Bare Metal (BM) instances. These are
@@ -1823,7 +1811,7 @@ per OCPU
 **BM.Standard.A1**—Bare metal Ampere Altra Q80–30, 3.0 GHz (OCPU=1 core,
 1 thread)
 
-### 6.3.4 Amazon Web Services
+### 6.3.4  Amazon Web Services
 
 All Amazon Web Services (AWS) Arm instances are based on the Graviton
 cores developed by Annapurna Labs, and are made available via the Amazon
@@ -1897,7 +1885,7 @@ core
 
 **Hpc7g**—Graviton3E, compute-intensive HPC, 16–64 vCPUs, 128 GB total
 
-### 6.3.5 Alibaba Cloud
+### 6.3.5  Alibaba Cloud
 
 Alibaba Cloud’s Elastic Compute Service (ECS) provides a number of Arm
 instances. Some are based on the Ampere Altra processor, while others
@@ -1948,7 +1936,7 @@ per core
 **g6x–ft–k**—FT–S2500 processor, dedicated instances, 2–120 vCPUs, 1–8
 GB per core
 
-### 6.3.6 Equinix
+### 6.3.6  Equinix
 
 Equinix provide cloud services and IT infrastructure support worldwide.
 They offer bare-metal instances based on Ampere Altra processors as part
@@ -1957,7 +1945,7 @@ of this service.
 **c3.large.arm64**—Ampere Altra, bare-metal instance, 80 cores, 256 GB
 memory
 
-### 6.3.7 Scaleway 
+### 6.3.7  Scaleway
 
 Scaleway’s Cost–Optimized service is based on the Ampere M128–30
 processor and is offered as an energy efficient and cost-effective
@@ -1967,14 +1955,14 @@ processor built to Armv8.2–A.
 **COP–ARM**—Ampere M128–30, bare-metal instance, 2–32 vCPUs, 8 GB per
 core
 
-### 6.3.8 Hetzner Cloud 
+### 6.3.8  Hetzner Cloud
 
 The Hetzner cloud compute offering includes instances based on Ampere
 Altra processors.
 
 **CAX**—Ampere Altra, shared instances, 2–16 vCPUs, 2 GB per core
 
-### 6.3.9 Tencent
+### 6.3.9  Tencent
 
 Tencent’s Cloud Virtual Machine product includes a single Arm-based
 instance, based on the Ampere Altra processor.
@@ -1991,9 +1979,9 @@ Altra Max processor.
 **a1–Standard**—optimized for cloud workloads, 1–32 vCPUs, 2–4 GB per
 core
 
-**a1–cpu—**high-performance cloud workloads, 2–32 vCPUs, 1 GB per core
+**a1–cpu**—high-performance cloud workloads, 2–32 vCPUs, 1 GB per core
 
-### 6.3.11 GleSYS
+### 6.3.11. GleSYS
 
 GleSYS’s Dedicated Server product includes the following dedicated Arm
 instances, based on Ampere processors.
@@ -2004,7 +1992,7 @@ instances, based on Ampere processors.
 
 **Small.arm64**—Ampere Altra Max M128–30, 128 vCPUs, 1 TB memory
 
-# 7. Market Positioning and Competitive Analysis
+# 7.  Market Positioning and Competitive Analysis
 
 The Neoverse™ cores represent a new market position for Arm<sup>®</sup>
 technology.
@@ -2039,7 +2027,7 @@ important, but for different reasons and with different priority.
 Additional factors—such as per-core performance and scalability—become
 more important.
 
-## 7.1 Cost–Effective Performance
+## 7.1  Cost–Effective Performance
 
 The primary requirement for data center compute devices is sufficient
 processing power. The x86 devices, which have dominated this market for
@@ -2059,7 +2047,7 @@ Benchmarks—both by Arm, and by independent vendors—have shown that
 Neoverse processors can compete with alternative platforms while
 remaining cost-effective and consuming less power.
 
-## 7.2 Sustainability[^10]
+## 7.2  Sustainability
 
 In earlier markets, the need to conserve battery life drove ever greater
 power efficiency in Arm processors. A wide range of sleep, deep-sleep,
@@ -2087,7 +2075,7 @@ offset the rising energy demands of data centers driven by the growing
 use of compute-intensive artificial intelligence and machine learning
 workloads.
 
-## 7.3 Scalability
+## 7.3  Scalability
 
 Scalability—the ability to keep performance approximately proportional
 to the number of cores—is a key requirement for data center operators.
@@ -2111,7 +2099,7 @@ be targeted at deployment from the data center to the edge of the
 network, retaining architectural and software compatibility across the
 range.
 
-## 7.4 Total Cost of Ownership (TCO)
+## 7.4  Total Cost of Ownership (TCO)
 
 TCO is an aggregate of several factors: the initial cost to build
 individual devices and complete data centers; power and other running
@@ -2122,7 +2110,7 @@ Arm-based systems allow reductions in all these individual costs,
 enabling a data center solution that is both cheaper to build and
 cheaper to run.
 
-## 7.5 Ecosystem Advantages
+## 7.5  Ecosystem Advantages
 
 One of the great strengths of Arm has always been its commitment to
 working closely with as many partners as possible to build a broad and
@@ -2140,8 +2128,6 @@ are supported on Arm platforms and have good performance compared to
 competing solutions. The porting costs are now minimal, and the size of
 the ecosystem is growing all the time, leading to the prospect of better
 and cheaper support in the future.
-
-
 
 [^1]: <sup>This was changed to “Arm” as part of a rebranding exercise in
     2017.</sup>
@@ -2179,14 +2165,3 @@ and cheaper support in the future.
 [^9]: <sup>A Data Processing Unit (DPU) is a programmable processing
     element which is optimized for high–speed processing and
     transmission of data.</sup>
-
-[^10]: <sup>For further information on Arm’s corporate approach to
-    sustainability, refer to the 2024 Sustainable Business Report,
-    (https://www.arm.com/company/sustainability/read-our-reports)</sup>
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 # Part 2—The Software Stack
 
-# 1. Diverse Use Cases Need Diverse Cores
+# 8.  Diverse Use Cases Need Diverse Cores
 
 The Neoverse™ range of cores spans a wide breadth of performance points,
 capabilities, and applications. Neoverse V represents the highest
@@ -19,12 +19,12 @@ Arm<sup>®</sup>. These cores have different and specific balances
 between performance, power efficiency, scalability, connectivity, and
 cost-of-ownership.
 
-## 1.1 Supported Software
+## 8.1  Supported Software
 
 Because there are many diverse use cases for Neoverse systems, Arm also
 supports a large number of software packages. Arm maintains a list of
 these on its website, here:
-[https://www.arm.com/developer–hub/ecosystem–dashboard/servers–and–cloud–computing](https://www.arm.com/developer-hub/ecosystem-dashboard/servers-and-cloud-computing).
+[<u>https://www.arm.com/developer–hub/ecosystem–dashboard/servers–and–cloud–computing</u>](https://www.arm.com/developer-hub/ecosystem-dashboard/servers-and-cloud-computing).
 The list is constantly being updated as the number of supported packages
 evolves over time.
 
@@ -42,7 +42,7 @@ Hat and SUSE.
 
 Of particular interest to migrating developers is the fact that the
 largest category of supported packages are cloud-native development
-tools.[^11] The list includes offerings from popular vendors such as
+tools.[^1] The list includes offerings from popular vendors such as
 CircleCI, Apache, Azure, Daytona, Docker, GitHub, Harness, Kubernetes,
 Nomad, and Oracle. Alongside this is a comprehensive set of languages
 and development tools, including compilers, debuggers and profilers. The
@@ -50,7 +50,7 @@ size and coverage of this list means that the majority of developers
 will be able to migrate to a Neoverse platform without changing their
 tooling solution.
 
-## 1.2 Example Platform
+## 8.2  Example Platform
 
 For the software developer seeking to deploy applications on a Neoverse
 processor that is accessed via a cloud instance, the target device will
@@ -89,12 +89,11 @@ interfaces for connection to on-chip and off-chip components. The size
 and configuration of many of these components is chosen during the
 design and manufacturing process by the licensee.
 
-<img src="./media/image6.png" style="width:5.75in;height:3.09375in" />
+<img src="./media/image5.png" style="width:5.75in;height:3.09375in" />
 
-Figure 1: Neoverse CSS N2 Block Diagram
+Figure 5: Neoverse CSS N2 Block Diagram
 
-A diagram of Neoverse CSS N2 is shown in Figure 1. Components shown
-include:
+A diagram of Neoverse CSS N2 is shown in 5. Components shown include:
 
 **Processor blocks**
 In the delivered configurations of Neoverse CSS N2, each processor block
@@ -118,7 +117,7 @@ control of the device, power monitoring of each individual processor and
 of the system as a whole, the external management interface (SCMI) and
 security support.
 
-**A diagram of the Neoverse N2 Reference Design is shown in Figure 2.
+**A diagram of the Neoverse N2 Reference Design is shown in Figure** **.
 The Neoverse N2 Reference Design is compliant with Arm Server Base
 System Architecture version 6.0, indicating compatibility with many
 standard software products.**
@@ -127,17 +126,17 @@ The Neoverse N2 Reference Design implements the Neoverse CSS N2 with the
 following configuration choices:
 
 - **32 instances of the processor block—each including a single Neoverse
-  N2 processor with a 64 kB private L1 I–cache, a 64 kB private L1
-  D–cache, and a 1 MB private, unified L2 cache;**
+N2 processor with a 64 kB private L1 I–cache, a 64 kB private L1
+D–cache, and a 1 MB private, unified L2 cache;**
 
 - **a third–party DDR memory controller; and**
 
 - **32 MB System Level Cache in the interconnect.**
 
-<img src="./media/image7.png" style="width:6.26806in;height:3.8125in"
+<img src="./media/image6.png" style="width:6.26806in;height:3.8125in"
 alt="A computer screen shot of a diagram Description automatically generated" />
 
-Figure 2 – Neoverse N2 Reference Design
+Figure 6 – Neoverse N2 Reference Design
 
 For readers with an interest in system-on-chip architecture, the final
 chapter in this section contains a brief overview of many of the
@@ -147,24 +146,23 @@ This discussion won’t cover in detail the software running on any of the
 support processors (SCP and MCP), nor the (rather complex) boot process
 needed to get the device from power-on to a usable state running a Linux
 kernel. Further detail about these topics, and the platform itself, can
-be found on Arm’s website.[^12]
+be found on Arm’s website.[^2]
 
-# 2. Security Considerations
+# 9.  Security Considerations
 
-Note: This section describes the Confidential Compute Architecture
+*Note: This section describes the Confidential Compute Architecture
 (CCA). This technology has been developed by Arm<sup>®</sup> in recent
 years and has been released to partners in the latest processor core
 designs. CCA is supported by a range of software models upon which
 software can be developed and tested. Wider market adoption of this
 technology requires the coalition of many partners, including regulators
-and service providers.
+and service providers.*
 
 Security has become an increasingly important design consideration in
 recent years. For the cloud computing industry, it has become a
 foundational issue, chiefly for these reasons:
 
-- Cloud resources are accessible from anywhere by anyone on the
-  internet.
+- Cloud resources are accessible from anywhere by anyone on the internet.
 
 - The same physical resources are frequently shared by multiple users.
 
@@ -221,7 +219,7 @@ components—such as the operating system and hypervisor—cannot be trusted
 to the same extent. They are simply too large and complex to be robustly
 verified and certified.
 
-Referring to the system structure shown in Figure 4, notice that the
+Referring to the system structure shown in Figure 8, notice that the
 entire Linux kernel, together with any application workloads running on
 it, is regarded as untrusted and executes in the Non-Secure World.
 Security architectures like CCA and TrustZone remove the need to trust
@@ -235,7 +233,7 @@ software infrastructure supporting them.
 On the Application Processor (AP), only a small body of software—the
 “Secure Runtime Services”—executes in the Secure World.
 
-On systems that support RME (see Figure 4) the majority of the drivers,
+On systems that support RME (see Figure 8) the majority of the drivers,
 together with the code responsible for switching between the Secure and
 Non-Secure Worlds, are executed in Root state. User workloads can either
 execute in the Non-Secure World on top of the Linux kernel, or in
@@ -243,14 +241,14 @@ compartmentalized realms in Realm state.
 
 The following points are worth noting:
 
-- A workload executing in a Realm is invisible not only to other
-  workloads in Realm state but also invisible to the operating system.
+- A workload executing in a Realm is invisible not only to other workloads
+in Realm state but also invisible to the operating system.
 
 - The body of software executing in Root and Secure states is small,
-  bounded, and can be verified prior to execution.
+bounded, and can be verified prior to execution.
 
 - User–generated workloads, running in Realms, are isolated so that they
-  can neither interact with each other nor with the rest of the system.
+can neither interact with each other nor with the rest of the system.
 
 Hardware debug features must be carefully considered and controlled,
 because they require extensive access to on-chip resources and internal
@@ -262,31 +260,31 @@ separately authenticated. Some systems, including the Arm Neoverse
 Reference Designs, internally disable some debug features if the
 debugger cannot successfully be authenticated.
 
-# 3. A Typical Software Stack
+# 10.  A Typical Software Stack
 
 The software stack that executes on the Application Processor (AP)—the
 Neoverse™ processor is only one part of the story, because the AP is
 only one of several processors in the system. To support the AP,
 management and control tasks are often delegated to support processors.
-The example shown in Figure 3 shows a typical system configuration of an
+The example shown in Figure 7 shows a typical system configuration of an
 Application Processor (AP), System Control Processor (SCP), and
 Manageability Control Processor (MCP).
 
-<img src="./media/image8.png" style="width:6.26806in;height:4.43264in"
+<img src="./media/image7.png" style="width:6.26806in;height:4.43264in"
 alt="A screenshot of a computer program Description automatically generated" />
 
-Figure 3 – High–level software illustration of a Neoverse Reference
+Figure 7 – High–level software illustration of a Neoverse Reference
 Design.
 
-The slightly more complex, example in Figure 4 shows the configuration
+The slightly more complex, example in Figure 8 shows the configuration
 when Confidential Compute Architecture (CCA) is implemented. This
 requires the addition of Realm Software (executing on the AP) to manage
 the Realm Control Extension hardware.
 
-<img src="./media/image9.png" style="width:6.26806in;height:2.77639in"
+<img src="./media/image8.png" style="width:6.26806in;height:2.77639in"
 alt="A screenshot of a computer software Description automatically generated" />
 
-Figure 4 – High–level software illustration of a Neoverse Reference
+Figure 8 – High–level software illustration of a Neoverse Reference
 Design with RME.
 
 The AP, SCP, and MCP are physically distinct processors—although in some
@@ -323,7 +321,7 @@ argument.</sup></strong></p>
 <p>Trusted boot firmware</p>
 <p>Secure run–time services (including secure devices drivers and error
 handlers)</p>
-<p>EL3 secure run–time services</p></th>
+<p>EL3 (hypervisor) run–time services</p></th>
 </tr>
 <tr>
 <th>Realm</th>
@@ -380,12 +378,12 @@ application in a server environment.
 The software executing on these two processors is provided by the
 equipment manufacturer and can generally be regarded as immutable by end
 users. It is typically based on reference software provided by
-Arm<sup>®</sup>.[^13]
+Arm<sup>®</sup>.[^3]
 
 We now look at the boot sequence—beginning from reset and typically
-ending with the launch of the operating system.
+ending with the launch of the operating system.13
 
-# 4. The Boot Sequence: Hardware to Operating System
+# 11.  The Boot Sequence: Hardware to Operating System
 
 As might be expected, the boot sequence in a complex, multi-processor
 system is inevitably intricate. It requires a chain of secure steps,
@@ -405,7 +403,7 @@ and validation keys.
 
 Prior to the boot process, during chip and device manufacturing, a
 separate provisioning process installs the chip and device keys,
-configuration data, manufacturer keys, and information.[^14] The initial
+configuration data, manufacturer keys, and information.[^4] The initial
 boot code (BL1_1) is built into on-chip ROM during manufacturing; the
 second stage boot code (BL1_2) is programmed into one-time programmable
 (OTP) memory during device provisioning. This provisioning process is a
@@ -428,67 +426,58 @@ above. Similarly, at each stage, validation is carried out using
 immutable keys, which are inserted during manufacture and are unique to
 the device.
 
-In overview, the sequence, shown in Figure 5, is as follows:
+In overview, the sequence, shown in Figure 9, is as follows:
 
-1.  **MCP and SCP**
+**01 MCP and SCP**
 
-<!-- -->
+> MCP and SCP boot from their respective boot ROMs.
+>
+> MCP waits until the SCP has established PLL lock.
+>
+> MCP and SCP load images from on-chip RAM or off–chip flash into TCM.
+>
+> MCP and SCP validate the loaded images.
+>
+> MCP and SCP jump to TCM.
+>
+> MCP and SCP exchange keys to establish mutual trust before continuing.
+>
+> SCP enables the Application Processor’s clock circuits.
+>
+> SCP powers up one core (typically CPU0).
 
-1.  MCP and SCP boot from their respective boot ROMs.
+**02 Application Processor (AP)**
 
-2.  MCP waits until the SCP has established PLL lock.
+>AP boots from the BL1 image in secure ROM.
+>
+> AP BL1 loads and validates BL2 image from Flash, and transfers control
+> to it.
+>
+> AP BL2 loads and validates BL31 image from Flash, and transfers
+> control to it.
+>
+> Successful completion of BL31 boot signaled to SCP.
+>
+> AP BL31 configures the interrupt framework, power management
+> interface, and secure partition manager.
+>
+> AP BL32 initializes Secure Partition Manager (EL3) and returns to AP
+> BL31.
+>
+> AP BL31 transfers control to UEFI (Non–secure EL2).
+>
+> AP UEFI transfers control to the operating system (OS).
+>
+> OS requests power-on of secondary CPUs on primary chip.
+>
+> OS requests power-on of CPUs on secondary chip(s).
 
-3.  MCP and SCP load images from on-chip RAM or off–chip flash into TCM.
-
-4.  MCP and SCP validate the loaded images.
-
-5.  MCP and SCP jump to TCM.
-
-6.  MCP and SCP exchange keys to establish mutual trust before
-    continuing.
-
-7.  SCP enables the Application Processor’s clock circuits.
-
-8.  SCP powers up one core (typically CPU0).
-
-<!-- -->
-
-2.  **Application Processor (AP)**
-
-<!-- -->
-
-1.  AP boots from the BL1 image in secure ROM.
-
-<!-- -->
-
-9.  AP BL1 loads and validates BL2 image from Flash, and transfers
-    control to it.
-
-10. AP BL2 loads and validates BL31 image from Flash, and transfers
-    control to it.
-
-11. Successful completion of BL31 boot signaled to SCP.
-
-12. AP BL31 configures the interrupt framework, power management
-    interface, and secure partition manager.
-
-13. AP BL32 initializes Secure Partition Manager (EL3) and returns to AP
-    BL31.
-
-14. AP BL31 transfers control to UEFI (Non–secure EL2).
-
-15. AP UEFI transfers control to the operating system (OS).
-
-16. OS requests power-on of secondary CPUs on primary chip.
-
-17. OS requests power-on of CPUs on secondary chip(s).
-
-<img src="./media/image10.png" style="width:6.26806in;height:3.29097in"
+<img src="./media/image9.png" style="width:6.26806in;height:3.29097in"
 alt="A diagram of a flowchart Description automatically generated" />
 
-Figure 5 – Boot Sequence Flow Diagram
+Figure 9 – Boot Sequence Flow Diagram
 
-# 5. Device and Platform Discovery
+# 12.  Device and Platform Discovery
 
 It should be apparent by now that no two Neoverse™-based platforms are
 the same! While this may sound like a disadvantage, this is a
@@ -555,10 +544,10 @@ system works. They can simply rely on the majority of system software
 using it and therefore being usable across a wide range of
 platforms—both Arm and non-Arm.
 
-# 6. Operating Systems & Hypervisors
+# 13.  Operating Systems & Hypervisors
 
-(For an updated list of software packages supported on Arm, refer to:
-[https://www.arm.com/developer–hub/ecosystem–dashboard/servers–and–cloud–computing](https://www.arm.com/developer-hub/ecosystem-dashboard/servers-and-cloud-computing))
+*(For an updated list of software packages supported on Arm, refer to:
+[<u>https://www.arm.com/developer–hub/ecosystem–dashboard/servers–and–cloud–computing</u>](https://www.arm.com/developer-hub/ecosystem-dashboard/servers-and-cloud-computing))*
 
 The majority of applications use a standard operating system. Although
 other options are possible, this operating system will likely be some
@@ -585,32 +574,32 @@ functions carried out by the SCP and MCP, which execute separate
 firmware. The SCP is responsible for low-level system management, and
 the MCP is responsible for manageability functions.
 
-To recap the more detailed discussion in §4, the supporting firmware
+To recap the more detailed discussion in §11, the supporting firmware
 executing on the AP—loading and supporting the operating system
 kernel—includes:
 
 - Arm Trusted Firmware BL1  
-  BL1 is contained in an on–chip ROM, fixed at time of manufacture
+BL1 is contained in an on–chip ROM, fixed at time of manufacture
 
 - Arm Trusted Firmware BL2  
-  BL2 is loaded from external non-volatile storage into on-chip RAM
+BL2 is loaded from external non-volatile storage into on-chip RAM
 
 - Arm Trusted Firmware BL31  
-  BL31 manages the Power State Coordination Interface (PSCI), Secure
-  monitor framework, and Secure partition manager
+BL31 manages the Power State Coordination Interface (PSCI), Secure
+monitor framework, and Secure partition manager
 
 - Secure runtime services BL32\|  
-  BL32 is runtime software that runs under the management of the Secure
-  partition manager
+BL32 is runtime software that runs under the management of the Secure
+partition manager
 
 - Bootloader BL33  
-  BL33 is the final component in the boot sequence, typically a
-  UEFI-compliant bootloader providing the interface between the firmware
-  and the operating system
+BL33 is the final component in the boot sequence, typically a
+UEFI-compliant bootloader providing the interface between the firmware
+and the operating system
 
-More information about these components can be found in the [Arm
-Neoverse™ N2 Reference Design Technical
-Overview](https://developer.arm.com/documentation/102337/latest/).
+More information about these components can be found in the [<u>Arm
+Neoverse</u>™ <u>N2 Reference Design Technical
+Overview</u>](https://developer.arm.com/documentation/102337/latest/).
 
 The Arm Neoverse N2 Reference Design Linux kernel is provided to
 demonstrate the platform features, and does not implement sufficient
@@ -622,7 +611,7 @@ Alternatively, if you have already selected a particular kernel, then
 you will need to choose a platform on which it is supported.
 
 All of these software components are available from the Reference Design
-Github repository.[^15]
+Github repository.[^5]
 
 The main choice to make at this point is whether to use a
 vendor-specific Linux distribution, or to use a cross-platform
@@ -630,46 +619,46 @@ distribution. We discuss both below. The choice is driven by one or more
 of the following:
 
 - **New or ported software**
-  If you are porting an application from another platform, and your
-  current distribution is supported on the destination platform, you may
-  wish to retain the same Linux distribution to minimize disruption when
-  porting.
+If you are porting an application from another platform, and your
+current distribution is supported on the destination platform, you may
+wish to retain the same Linux distribution to minimize disruption when
+porting.
 
 - **Hardware support**  
-  Applications that rely on particular hardware features that are
-  present in only some platforms may wish to opt for a vendor-specific
-  or platform-specific distribution in order to ensure the best and most
-  up-to-date support for those features.
+Applications that rely on particular hardware features that are present
+in only some platforms may wish to opt for a vendor-specific or
+platform-specific distribution in order to ensure the best and most
+up-to-date support for those features.
 
 - **Licensing terms**
-  Changing distribution will almost certainly involve changing supplier
-  and adopting new commercial and licensing terms. If you are already
-  using a particular distribution, sticking with it may be a sensible
-  choice for this reason. If you are developing a completely new
-  product, then this would not apply.
+Changing distribution will almost certainly involve changing supplier
+and adopting new commercial and licensing terms. If you are already
+using a particular distribution, sticking with it may be a sensible
+choice for this reason. If you are developing a completely new product,
+then this would not apply.
 
 - **Stability and support**  
-  Many developers opt for a longstanding and well-supported distribution
-  from the open marketplace, in order to benefit from the stability that
-  comes with maturity, and the support that comes with a commercial
-  product. The cost is obviously weighed against the benefits here.
+Many developers opt for a longstanding and well-supported distribution
+from the open marketplace, in order to benefit from the stability that
+comes with maturity, and the support that comes with a commercial
+product. The cost is obviously weighed against the benefits here.
 
 - **Ease of use and availability**
-  Most device manufacturers and cloud hosting companies make a
-  particular distribution, or a selection of distributions, available
-  with their product. Choosing one of these is not just the “easy”
-  option—these are likely to be supported directly by the supplier and
-  be better targeted to their specific platforms. In particular, they
-  will often be the first to support new features. Licensing and
-  commercial terms for these platforms may also be simpler as they may
-  be bundled with the terms for using the platform itself.
+Most device manufacturers and cloud hosting companies make a particular
+distribution, or a selection of distributions, available with their
+product. Choosing one of these is not just the “easy” option—these are
+likely to be supported directly by the supplier and be better targeted
+to their specific platforms. In particular, they will often be the first
+to support new features. Licensing and commercial terms for these
+platforms may also be simpler as they may be bundled with the terms for
+using the platform itself.
 
-## 6.1 Cross–Platform: SUSE, Debian, RedHat, Ubuntu
+## 13.1  Cross–Platform: SUSE, Debian, RedHat, Ubuntu
 
 On Microsoft Azure bare-metal instances, RedHat RHEL and Suse SLES are
 the options for the operating system.
 
-# 7. Middleware
+# 14.  Middleware
 
 In a typical software application development environment, middleware is
 the glue that connects the applications to the operating system and the
@@ -679,7 +668,7 @@ other and to share common underlying services. Middleware largely hides
 the details of the underlying platform from applications that wish to
 use the services it provides.
 
-<img src="./media/image11.png" style="width:6.26806in;height:1.69444in"
+<img src="./media/image10.png" style="width:6.26806in;height:1.69444in"
 alt="A blue and yellow background with arrows AI-generated content may be incorrect." />Middleware
 may be highly integrated and specific, such as a game engine that
 provides audio, video, animation, and game-play services to a gaming
@@ -697,29 +686,28 @@ details of how that communication actually happens.
 Below are some examples of different kinds of middleware.
 
 - **Database**
-  A database access service (such as Hadoop or MySQL) allows
-  applications to query a database using a standard query language, such
-  as SQL.
+A database access service (such as Hadoop or MySQL) allows applications
+to query a database using a standard query language, such as SQL.
 
 - **Runtime Environment**
-  Many programming languages (such as Python, Ruby or Java) need to
-  execute in a standard environment at runtime. This environment makes
-  available a standard set of services which the language needs.
+Many programming languages (such as Python, Ruby or Java) need to
+execute in a standard environment at runtime. This environment makes
+available a standard set of services which the language needs.
 
 - **Networking**
-  Applications rarely run in complete isolation, and almost always need
-  to communicate with other applications. They may be executing on the
-  same platform, or on physically distinct and possibly remote
-  platforms, on different processors. A networking layer (such as NFS or
-  Cloudflare) provides these connection and data transport functions
-  while hiding the underlying nature of the connection.
+Applications rarely run in complete isolation, and almost always need to
+communicate with other applications. They may be executing on the same
+platform, or on physically distinct and possibly remote platforms, on
+different processors. A networking layer (such as NFS or Cloudflare)
+provides these connection and data transport functions while hiding the
+underlying nature of the connection.
 
 - **Security**
-  For a variety of reasons, applications often need access to secure and
-  standard means of encrypting data, either for local use or for
-  transmission to other applications. Security middleware (such as
-  OpenSSL or Bitdefender) handles this, as well as related functions
-  such as key generation and secure key exchange.
+For a variety of reasons, applications often need access to secure and
+standard means of encrypting data, either for local use or for
+transmission to other applications. Security middleware (such as OpenSSL
+or Bitdefender) handles this, as well as related functions such as key
+generation and secure key exchange.
 
 The choice of middleware components can have significant effects on the
 performance and functionality of the final system. The criteria for
@@ -729,33 +717,33 @@ the same as for any other platform.
 You should consider the following factors:
 
 - **Commercial or non–commercial licensing terms**  
-  This might include rights for redistribution, modification or re–use.
+This might include rights for redistribution, modification or re–use.
 
 - **Platform support**  
-  Not all middleware components are supported on all platforms, so the
-  choice will be limited by what is available on your chosen platform.
+Not all middleware components are supported on all platforms, so the
+choice will be limited by what is available on your chosen platform.
 
 - **Cost**  
-  Licensing, use and distribution costs vary greatly between suppliers.
-  The selection must fit the financial business case made for the
-  application.
+Licensing, use and distribution costs vary greatly between suppliers.
+The selection must fit the financial business case made for the
+application.
 
 - **Compatibility**  
-  Some components are incompatible with others, or are not supported on
-  some operating systems. It can be complicated to choose a selection of
-  components that are all compatible.
+Some components are incompatible with others, or are not supported on
+some operating systems. It can be complicated to choose a selection of
+components that are all compatible.
 
 - **Support services**
-  The availability and quality of support vary greatly across the
-  industry. In general, commercial offerings will come with a level of
-  support; FOSS offerings may not.
+The availability and quality of support vary greatly across the
+industry. In general, commercial offerings will come with a level of
+support; FOSS offerings may not.
 
 - **Functionality and performance**
-  You should evaluate which options meet the required features at the
-  needed performance level. These factors should be addressed in the
-  application requirements specification.
+You should evaluate which options meet the required features at the
+needed performance level. These factors should be addressed in the
+application requirements specification.
 
-# 8. Cloud–Native Tooling
+# 15.  Cloud–Native Tooling
 
 In cloud–native development, applications are built in the cloud, to run
 in the cloud. This requires that all the development tooling and
@@ -789,11 +777,11 @@ environment.
 As well as convenience and efficiency of development, cloud-native has
 other advantages.
 
-**Greater reuse**—it is much easier and more efficient for multiple
+- **Greater reuse**—it is much easier and more efficient for multiple
 applications to make use of common middleware and shared resources,
 since all are in the cloud.
 
-**Compartmentalization**—individual components can be individually
+- **Compartmentalization**—individual components can be individually
 containerized, being connected via shared middleware into the complete
 system. This makes it easier to isolate and fix problems, and enables a
 divide-and-conquer approach to system design, performance optimization,
@@ -801,24 +789,24 @@ and scalability. To fix isolated problems, only the affected components
 need to be replaced, and this can be done “in place”. Additionally,
 components can be individually scaled to meet capacity requirements.
 
-**Simplified supply chain**—with components being built to execute on
+- **Simplified supply chain**—with components being built to execute on
 the same underlying platform, using the same middleware APIs, there is
 less work involved to integrate components from a diverse supply chain.
 
-**Scalability**—development resources can be provisioned and deployed
+- **Scalability**—development resources can be provisioned and deployed
 instantaneously as required, eliminating the need to purchase and
 maintain expensive development platforms.
 
-**Reduced Development Cost**—without the need to purchase and maintain
+- **Reduced Development Cost**—without the need to purchase and maintain
 development kit in the locations where developers are working,
 development time and cost are reduced.
 
-**High Availability and Resilience**—it is no longer the job of the
+- **High Availability and Resilience**—it is no longer the job of the
 developer to maintain access to developer hardware. The cloud vendor is
 responsible for making the agreed resources available, at the agreed
 time, with the agreed service level. This reduces risk for developers.
 
-**Reproducibility**—technologies such as Docker allow software to be
+- **Reproducibility**—technologies such as Docker allow software to be
 developed and executed within containers. These containers can then be
 perfectly reproduced on the target platform. This allows software to be
 tested on the local platform in an environment that perfectly matches
@@ -834,7 +822,7 @@ While there are many options for suites of automation tools, many are
 well supported on Arm platforms, including Git, Docker, Kubernetes,
 Splunk, Nagios, Datadog, Maven, Jenkins, and many more.
 
-# 9. Applications
+# 16.  Applications
 
 There are two main routes that developers might take when seeking to
 deploy an application on an Arm-based Neoverse™ platform. First,
@@ -851,89 +839,92 @@ considerations to bear in mind.
 
 **Arm is a widely supported compiler target**
 
-Development for Arm is mainstream now, and the majority of compilers and
-related development tools support Arm as a target architecture. When
-specifying your target platform, it is important to be as specific as
-possible. There are two reasons for this.  
-  
-Firstly, each new version of the Arm architecture introduces new
-features and enhancements—from new instructions to entirely new
-capabilities such as CCA. In order to make full use of the features of
-your chosen platform, you need to specify it as accurately as possible.
-If you specify the basic architecture version, such as Armv9–A, you can
-rely on newer features as well as the core architecture. If possible, be
-even more specific and specify the exact version, e.g. “Armv9.1–A”.  
-  
-Second, processors that implement the same version of the architecture
-(and thus execute the same instruction set with identical functionality)
-may do so using differing internal microarchitectures. This may include
-differences in pipeline structure, cache architecture, memory interface
-speed and bandwidth, and on-chip interfaces. Without details of this
-information, the compiler cannot optimize for greatest instruction
-throughput, for instance, nor lay out data structures for either lowest
-memory use or greatest speed of access. So, specifying the exact
-processor is the best option, e.g. “Neoverse N2”.
+> Development for Arm is mainstream now, and the majority of compilers
+> and related development tools support Arm as a target architecture.
+> When specifying your target platform, it is important to be as
+> specific as possible. There are two reasons for this.  
+>   
+> Firstly, each new version of the Arm architecture introduces new
+> features and enhancements—from new instructions to entirely new
+> capabilities such as CCA. In order to make full use of the features of
+> your chosen platform, you need to specify it as accurately as
+> possible. If you specify the basic architecture version, such as
+> Armv9–A, you can rely on newer features as well as the core
+> architecture. If possible, be even more specific and specify the exact
+> version, e.g. “Armv9.1–A”.  
+>   
+> Second, processors that implement the same version of the architecture
+> (and thus execute the same instruction set with identical
+> functionality) may do so using differing internal microarchitectures.
+> This may include differences in pipeline structure, cache
+> architecture, memory interface speed and bandwidth, and on-chip
+> interfaces. Without details of this information, the compiler cannot
+> optimize for greatest instruction throughput, for instance, nor lay
+> out data structures for either lowest memory use or greatest speed of
+> access. So, specifying the exact processor is the best option, e.g.
+> “Neoverse N2”.
 
 **Nearly all mainstream libraries and components are available on Arm**
 
-Given the wide support for Arm, your choice of libraries and middleware
-is likely to be available. Therefore, consider which ones have been
-optimized for your target platform, which are available on suitable
-licensing and commercial terms, and which might be better supported by
-your chosen cloud service provider.
+> Given the wide support for Arm, your choice of libraries and
+> middleware is likely to be available. Therefore, consider which ones
+> have been optimized for your target platform, which are available on
+> suitable licensing and commercial terms, and which might be better
+> supported by your chosen cloud service provider.
 
 **Watch out for hardware–specific software elements**
 
-Applications originally written for other architectures may make use of
-machine-specific features. The most obvious example of this would be
-modules that make use of a specific instruction set via intrinsic
-functions or inline assembly language. This is often done to access
-instructions that the compiler cannot emit, or which it cannot utilize
-efficiently. Such sections will clearly need to be either removed,
-rewritten, or substituted with a suitable library.
+> Applications originally written for other architectures may make use
+> of machine-specific features. The most obvious example of this would
+> be modules that make use of a specific instruction set via intrinsic
+> functions or inline assembly language. This is often done to access
+> instructions that the compiler cannot emit, or which it cannot utilize
+> efficiently. Such sections will clearly need to be either removed,
+> rewritten, or substituted with a suitable library.
 
 **Be aware of the flexibility in the Arm memory model**
 
-Arm processors, since Armv7, implement a “weakly ordered” memory model.
-This is essential for highest performance, as it allows the compiler and
-the machine to re-order memory accesses to maximize instruction
-throughput and make the most efficient use of available memory
-bandwidth. At the microarchitecture level, the processor pipeline has
-significant freedom to reduce, and even eliminate, instruction
-dependencies and data dependencies in the instruction stream. This is
-often highly specific to the exact processor being used—hence the advice
-above to specify the processor as exactly as possible.  
-  
-So it is important to ensure that appropriate memory areas are used for
-specific purposes, For example, memory-mapped hardware devices must be
-placed in Device memory; for efficient execution, executable code must
-be placed in Normal memory.[^16] The correct use of the “volatile”
-keyword in C is particularly important when accessing devices or shared
-memory areas.  
-  
-It is important to ensure that any memory regions in which access order
-is important (including devices, semaphores, mutexes, and shared message
-buffers) are carefully and correctly classified.  
-  
-The issue of “atomicity” needs careful consideration if necessary.
+> Arm processors, since Armv7, implement a “weakly ordered” memory
+> model. This is essential for highest performance, as it allows the
+> compiler and the machine to re-order memory accesses to maximize
+> instruction throughput and make the most efficient use of available
+> memory bandwidth. At the microarchitecture level, the processor
+> pipeline has significant freedom to reduce, and even eliminate,
+> instruction dependencies and data dependencies in the instruction
+> stream. This is often highly specific to the exact processor being
+> used—hence the advice above to specify the processor as exactly as
+> possible.  
+>   
+> So it is important to ensure that appropriate memory areas are used
+> for specific purposes, For example, memory-mapped hardware devices
+> must be placed in Device memory; for efficient execution, executable
+> code must be placed in Normal memory.[^6] The correct use of the
+> “volatile” keyword in C is particularly important when accessing
+> devices or shared memory areas.  
+>   
+> It is important to ensure that any memory regions in which access
+> order is important (including devices, semaphores, mutexes, and shared
+> message buffers) are carefully and correctly classified.  
+>   
+> The issue of “atomicity” needs careful consideration if necessary.
 
 **Don’t be caught out by differences such as arithmetic rounding and
 precision**
 
-While processors of different architectures often contain instructions
-that carry out the same basic function, such as floating-point
-multiplication, the exact way in which these behave in corner cases may
-differ. There are, for instance, various different strategies for
-arithmetic rounding: towards zero; to the nearest integer; or towards
-infinity. This can lead to different results from arithmetic
-calculations, especially when intermediate results are involved! For
-instance, a particular instruction sequence might or might not round
-intermediate results while performing an algorithm.  
-  
-Additionally, the precision of the variables and the functionality of
-the instructions may result in different results.  
-  
-Read the specification carefully and test your calculations.
+> While processors of different architectures often contain instructions
+> that carry out the same basic function, such as floating-point
+> multiplication, the exact way in which these behave in corner cases
+> may differ. There are, for instance, various different strategies for
+> arithmetic rounding: towards zero; to the nearest integer; or towards
+> infinity. This can lead to different results from arithmetic
+> calculations, especially when intermediate results are involved! For
+> instance, a particular instruction sequence might or might not round
+> intermediate results while performing an algorithm.  
+>   
+> Additionally, the precision of the variables and the functionality of
+> the instructions may result in different results.  
+>   
+> Read the specification carefully and test your calculations.
 
 In reality, there are almost no major wheels which you need to
 re-invent, due to the wide range of tried and tested libraries and
@@ -946,7 +937,7 @@ And, like a good software eco-warrior, always Reuse and Re-cycle!
 This is where the scope of this text draws to a close and gives way to
 the extent of your imagination!
 
-# 10. System–on–chip Components
+# 17. System–on–chip Components
 
 This section contains a brief overview of some of the system-on-chip
 components that are included in the Neoverse<sup>™</sup> N2 Reference
@@ -957,7 +948,7 @@ management are handled entirely by software executing either on the SCP
 or within the software stack on the AP—but this may be of interest to
 some readers.
 
-## 10.1 Generic Interrupt Controller (GIC–700)
+## 17.1  Generic Interrupt Controller (GIC–700)
 
 The interrupt logic is based on the Arm<sup>®</sup> Generic Interrupt
 Controller (GIC–700) and supports the management and distribution of
@@ -986,7 +977,7 @@ separately from the GICD. They also connect to the System Control
 Processor to support wake-up signaling when powering up individual
 cores.
 
-## 10.2 System Memory Management Unit (MMU–700)
+## 17.2  System Memory Management Unit (MMU–700)
 
 In a virtualized system, each core in the system may have its own
 virtual address space, and each application running on each core may, in
@@ -1026,7 +1017,7 @@ translation, it requests the TCU to retrieve one. Each TBU may be
 connected to one or more external bus masters. To improve performance in
 individual cases, more than one TBU may be connected to a single master.
 
-## 10.3 Network Interconnect (NI–700)
+## 17.3  Network Interconnect (NI–700)
 
 The NI–700 Network Interconnect is a highly-configurable, high
 frequency, low latency on-chip system-level interconnect, capable of
@@ -1034,7 +1025,7 @@ connecting across power and clock domain crossings. In the Neoverse N2
 Reference Design, the NI–700 connects to the external I/O masters and
 provides expansion interfaces for CMN–700.
 
-## 10.4 Coherent Mesh Network (CMN–700)
+## 17.4  Coherent Mesh Network (CMN–700)
 
 CMN–700 is a mesh-based coherent interconnect with multi-chip support
 using the CCIX standard. The mesh architecture supports high bandwidth
@@ -1065,7 +1056,7 @@ interfaces.
 
 CMN–700 can be configured with multiple asynchronous clock domains.
 
-## 10.5 Network Interconnect (NIC–450)
+## 17.5  Network Interconnect (NIC–450)
 
 The NIC–450 Network Interconnect is a library of components that can be
 used to build a scalable and configurable network-on-chip interconnect.
@@ -1078,7 +1069,7 @@ In the Neoverse N2 Reference Design, the NIC–450 connects to system
 peripherals, other on-chip components, and other subsystem components.
 Unlike the CMN–700, NIC–450 is not a coherent interconnect.
 
-## 10.6 Dynamic Shared Unit (DSU)
+## 17.6  Dynamic Shared Unit (DSU)
 
 The Dynamic Shared Unit (DSU) provides connection from a single core, or
 cluster of cores, into the rest of the system. Highly configurable, it
@@ -1099,32 +1090,29 @@ the core and the interconnect.
 The DSU also supports the Realm Management Extension (RME) security
 architecture.
 
-[^11]: <sup>“Cloud–native” refers to a development environment in which
+[^1]: <sup>“Cloud–native” refers to a development environment in which
     the development tools (compilers etc) execute on the same, or an
     identical, platform to which the developed application will be
     deployed.</sup>
 
-[^12]: <sup>[https://neoverse–reference–design.docs.arm.com/en/latest/about/software_stack.html](https://neoverse-reference-design.docs.arm.com/en/latest/about/software_stack.html)</sup>
+[^2]: <sup>[https://neoverse–reference–design.docs.arm.com/en/latest/about/software_stack.html](https://neoverse-reference-design.docs.arm.com/en/latest/about/software_stack.html)</sup>
 
-[^13]: <sup>While Arm provides implementations of these components as
+[^3]: <sup>While Arm provides implementations of these components as
     part of its Reference Designs, this software should not be treated
     as of “production quality”. It is intended merely as an example for
     device manufacturers.</sup>
 
-[^14]: <sup>This is analogous to the storage of keys in external Trusted
+[^4]: <sup>This is analogous to the storage of keys in external Trusted
     Platform Modules, a technique used in many system
     architectures.</sup>
 
-[^15]: <sup>As “Reference Designs” these should be treated as examples
+[^5]: <sup>As “Reference Designs” these should be treated as examples
     rather than production–ready software. Device and platform
     manufacturers will have their own implementations of this
     functionality which will be distributed with those devices and
     platforms.</sup>
 
-[^16]: <sup>For a discussion of the different types of memory and their
+[^6]: <sup>For a discussion of the different types of memory and their
     associated properties, see Chapter B2 in the Arm Architecture
     Reference Manual for A–profile architecture (ARM DDI 0487K). The
     discussion there is highly technical!</sup>
-
-
-
