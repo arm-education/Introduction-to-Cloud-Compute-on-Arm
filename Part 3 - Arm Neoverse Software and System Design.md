@@ -2468,24 +2468,23 @@ with profiling tools. When using the GNU prof tool, this must be enabled
 using the gcc compile flag `-p`. Profiling data for `gprof` can be generated
 using the gcc flag `-pg`.
 
-## 25.5  Arm Total Performance
+## 25.5  Arm Performix
 
 **<span class="smallcaps">Key Resource: Analyze & Optimize Workloads on
 Arm Neoverse:</span>**
-[<u>https://developer.arm.com/servers-and-cloud-computing/arm-total-performance</u>](https://developer.arm.com/servers-and-cloud-computing/arm-total-performance)
+[<u>https://developer.arm.com/servers-and-cloud-computing/arm-performix</u>]([https://developer.arm.com/servers-and-cloud-computing/arm-performix])
 
-*This page describes the Arm Total Performance tool and information on
+*This page describes the Arm Performix tool and information on
 how to join the Early Access Program.*
 
-Arm Total Performance (ATP) is a performance analysis tool specifically
+Arm Performix is a performance analysis tool specifically
 targeted at developers building and running workloads on Neoverse
 platforms. The tool collects performance data directly from performance
 counters built into the hardware at run-time, which then presented in a
 form which enables swift determination of performance issues and
 bottlenecks.
 
-The tool is currently being made available to developers as part of an
-Early Access Program. Developers can sign up to join the program at the
+The tool is made available to developers and can be downloaded at the
 page linked above.
 
 # 26.  Performance Analysis and Optimization
